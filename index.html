@@ -56,78 +56,436 @@ body{
 @keyframes of1{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,55px)}}
 @keyframes of2{0%,100%{transform:translate(0,0)}50%{transform:translate(-55px,-70px)}}
 @keyframes of3{0%,100%{transform:translate(0,0)}33%{transform:translate(-35px,45px)}66%{transform:translate(45px,-28px)}}
+
+/* ═══ GLASS COMPONENTS ═══ */
 .glass{background:var(--glass-bg);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid var(--glass-border);border-radius:var(--radius);transition:background .4s ease,border-color .4s ease,box-shadow .35s ease}
 .glass:hover{background:var(--glass-hover);box-shadow:0 8px 40px var(--shadow-glow)}
 .glass-static{background:var(--glass-bg);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid var(--glass-border);border-radius:var(--radius);transition:background .4s ease,border-color .4s ease;box-shadow:0 4px 24px var(--shadow-glow)}
-.btn-glow{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;background:linear-gradient(135deg,rgba(0,200,240,.12),rgba(0,232,140,.08));border:1px solid rgba(0,200,240,.22);border-radius:11px;color:var(--accent);font-family:'Inter',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;letter-spacing:.01em}
+
+/* ═══ BUTTONS ═══ */
+.btn-glow{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 24px;background:linear-gradient(135deg,rgba(0,200,240,.12),rgba(0,232,140,.08));border:1px solid rgba(0,200,240,.22);border-radius:11px;color:var(--accent);font-family:'Inter',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;letter-spacing:.01em;text-decoration:none;border:none;outline:none}
 .btn-glow:hover{background:linear-gradient(135deg,rgba(0,200,240,.22),rgba(0,232,140,.16));box-shadow:0 0 28px rgba(0,200,240,.18);transform:translateY(-1px) scale(1.02)}
 .btn-glow:active{transform:translateY(0) scale(.97);transition-duration:.1s}
-.btn-sm{padding:8px 16px;font-size:13px;border-radius:9px}
+.btn-sm{padding:9px 16px;font-size:13px;border-radius:9px}
+.btn-xs{padding:7px 12px;font-size:12px;border-radius:8px}
+
+/* ═══ PILLS & BADGES ═══ */
 .pill{display:inline-flex;align-items:center;padding:6px 16px;border-radius:100px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;border:1px solid}
-.tab-nav{display:flex;gap:3px;position:relative;padding:4px;border-radius:14px;background:var(--glass-bg);border:1px solid var(--glass-border);overflow-x:auto;-webkit-overflow-scrolling:touch;transition:background .4s ease,border-color .4s ease}
-.tab-nav::-webkit-scrollbar{height:0}
-.tab-btn{display:flex;align-items:center;gap:7px;padding:10px 22px;background:transparent;border:none;border-radius:10px;color:var(--text-muted);font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;cursor:pointer;white-space:nowrap;transition:color .25s ease;position:relative;z-index:1;letter-spacing:.01em}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.badge-cyan{background:rgba(0,200,240,.08);color:var(--accent);border:1px solid rgba(0,200,240,.14)}
+.badge-teal{background:rgba(0,232,140,.08);color:var(--accent2);border:1px solid rgba(0,232,140,.14)}
+.badge-gold{background:rgba(255,200,48,.08);color:var(--accent3);border:1px solid rgba(255,200,48,.14)}
+.badge-rose{background:rgba(255,56,96,.08);color:var(--accent4);border:1px solid rgba(255,56,96,.14)}
+
+/* ═══ TAB NAVIGATION ═══ */
+.tab-nav{display:flex;gap:3px;position:relative;padding:4px;border-radius:14px;background:var(--glass-bg);border:1px solid var(--glass-border);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;transition:background .4s ease,border-color .4s ease}
+.tab-nav::-webkit-scrollbar{height:0;display:none}
+.tab-btn{display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 18px;background:transparent;border:none;border-radius:10px;color:var(--text-muted);font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:color .25s ease;position:relative;z-index:1;letter-spacing:.01em}
 .tab-btn:hover{color:var(--text-secondary)}
 .tab-btn.active{color:var(--accent)}
 .tab-indicator{position:absolute;top:4px;height:calc(100% - 8px);background:rgba(0,200,240,.06);border:1px solid rgba(0,200,240,.16);border-radius:10px;transition:left .4s cubic-bezier(.4,0,.2,1),width .4s cubic-bezier(.4,0,.2,1),background .4s ease,border-color .4s ease;z-index:0;pointer-events:none}
+
+/* ═══ MODULES ═══ */
 .module{display:none;animation:modIn .45s cubic-bezier(.4,0,.2,1) forwards}
 .module.active{display:block}
 @keyframes modIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══ INPUTS ═══ */
 .cfg-input{width:100%;padding:13px 16px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:10px;color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.65;resize:vertical;transition:border-color .3s ease,box-shadow .3s ease,background .4s ease;outline:none}
 .cfg-input:focus{border-color:rgba(0,200,240,.35);box-shadow:0 0 0 3px rgba(0,200,240,.07)}
 .cfg-input::placeholder{color:var(--text-muted)}
-.cfg-input-sm{padding:10px 14px;font-size:13px}
-.rule-row{display:flex;align-items:baseline;gap:8px;padding:5px 0;font-family:'JetBrains Mono',monospace;font-size:13.5px;opacity:0;animation:ruleIn .35s ease forwards}
+.cfg-input-sm{padding:11px 14px;font-size:13px}
+
+/* ═══ RULE DISPLAY ═══ */
+.rule-row{display:flex;align-items:baseline;gap:8px;padding:5px 0;font-family:'JetBrains Mono',monospace;font-size:13.5px;opacity:0;animation:ruleIn .35s ease forwards;flex-wrap:wrap}
 @keyframes ruleIn{to{opacity:1;transform:translateX(0)}}
 .rule-lhs{color:var(--accent);font-weight:600}
 .rule-arrow{color:var(--text-muted)}
 .rule-rhs{color:var(--text-primary)}
 .rule-alt{color:var(--accent2);margin-left:8px;font-size:11px}
-.rule-error{color:var(--accent4);font-size:13px;padding:9px 13px;background:rgba(255,56,96,.07);border-radius:9px;border:1px solid rgba(255,56,96,.12)}
-.deriv-step{display:flex;align-items:center;gap:12px;padding:11px 15px;border-radius:10px;background:var(--input-bg);border:1px solid var(--glass-border);margin-bottom:7px;transition:all .3s ease;opacity:0;animation:stepIn .35s ease forwards}
+.rule-error{color:var(--accent4);font-size:13px;padding:10px 14px;background:rgba(255,56,96,.07);border-radius:9px;border:1px solid rgba(255,56,96,.12);line-height:1.6}
+
+/* ═══ DERIVATION STEPS ═══ */
+.deriv-step{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:10px;background:var(--input-bg);border:1px solid var(--glass-border);margin-bottom:7px;transition:all .3s ease;opacity:0;animation:stepIn .35s ease forwards;flex-wrap:wrap}
 .deriv-step.active-step{border-color:rgba(0,200,240,.3);box-shadow:0 0 20px rgba(0,200,240,.08)}
 @keyframes stepIn{to{opacity:1}}
-.step-num{min-width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,200,240,.1);color:var(--accent);font-size:11px;font-weight:700}
-.step-form{font-family:'JetBrains Mono',monospace;font-size:13.5px;flex:1;word-break:break-all}
+.step-num{min-width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,200,240,.1);color:var(--accent);font-size:11px;font-weight:700;flex-shrink:0}
+.step-form{font-family:'JetBrains Mono',monospace;font-size:13px;flex:1;word-break:break-all;min-width:0}
 .step-form .nt{color:var(--accent);font-weight:600}
 .step-form .tm{color:var(--accent2)}
 .step-form .eps{color:var(--accent3)}
-.step-info{font-size:11.5px;color:var(--text-muted);white-space:nowrap}
-#tree-render{min-height:200px;display:flex;align-items:center;justify-content:center;overflow:auto;padding:24px;position:relative}
-#tree-render svg text{user-select:none}
-.app-card{padding:28px;border-radius:var(--radius);cursor:default;transition:transform .5s cubic-bezier(.4,0,.2,1),box-shadow .5s ease}
+.step-info{font-size:11.5px;color:var(--text-muted);white-space:nowrap;width:100%;margin-top:4px}
+
+/* ═══ PARSE TREE ═══ */
+#tree-render{min-height:250px;display:flex;align-items:center;justify-content:center;overflow:auto;padding:20px;position:relative;-webkit-overflow-scrolling:touch}
+#tree-render svg text{user-select:none;-webkit-user-select:none}
+
+/* ═══ APPLICATION CARDS ═══ */
+.app-card{padding:24px;border-radius:var(--radius);cursor:default;transition:transform .5s cubic-bezier(.4,0,.2,1),box-shadow .5s ease;height:100%;display:flex;flex-direction:column}
 .app-card:hover{box-shadow:0 12px 48px var(--shadow-glow)}
-.app-card-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:18px}
-#tooltip{position:fixed;z-index:1000;max-width:270px;padding:10px 14px;background:rgba(8,8,24,.94);border:1px solid rgba(0,200,240,.18);border-radius:10px;color:#e0e0f0;font-size:12.5px;line-height:1.6;pointer-events:none;opacity:0;transition:opacity .2s ease;backdrop-filter:blur(14px);box-shadow:0 8px 28px rgba(0,0,0,.35);font-family:'Inter',sans-serif}
+.app-card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:16px;flex-shrink:0}
+
+/* ═══ TOOLTIP ═══ */
+#tooltip{position:fixed;z-index:1000;max-width:260px;padding:10px 14px;background:rgba(8,8,24,.94);border:1px solid rgba(0,200,240,.18);border-radius:10px;color:#e0e0f0;font-size:12.5px;line-height:1.6;pointer-events:none;opacity:0;transition:opacity .2s ease;backdrop-filter:blur(14px);box-shadow:0 8px 28px rgba(0,0,0,.35);font-family:'Inter',sans-serif}
 .light #tooltip{background:rgba(255,255,255,.96);border-color:rgba(0,100,140,.15);color:#1a1a30;box-shadow:0 8px 28px rgba(0,20,60,.1)}
 #tooltip.show{opacity:1}
-#toast-box{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;gap:8px}
-.toast{padding:11px 18px;border-radius:10px;font-size:13px;font-weight:500;animation:toastIn .35s ease forwards;min-width:220px;backdrop-filter:blur(16px);border:1px solid var(--glass-border);font-family:'Inter',sans-serif}
+
+/* ═══ TOAST NOTIFICATIONS ═══ */
+#toast-box{position:fixed;bottom:20px;left:20px;right:20px;z-index:999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.toast{padding:11px 18px;border-radius:10px;font-size:13px;font-weight:500;animation:toastIn .35s ease forwards;max-width:400px;margin:0 auto;backdrop-filter:blur(16px);border:1px solid var(--glass-border);font-family:'Inter',sans-serif;pointer-events:auto}
 .toast-success{background:rgba(0,232,140,.1);color:var(--accent2);border-color:rgba(0,232,140,.16)}
 .toast-error{background:rgba(255,56,96,.1);color:var(--accent4);border-color:rgba(255,56,96,.16)}
 .toast-info{background:rgba(0,200,240,.1);color:var(--accent);border-color:rgba(0,200,240,.16)}
-@keyframes toastIn{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:translateX(0)}}
-@keyframes toastOut{to{opacity:0;transform:translateX(36px)}}
-.theme-toggle{width:42px;height:42px;border-radius:11px;border:1px solid var(--glass-border);background:var(--glass-bg);color:var(--text-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .3s ease}
+@keyframes toastIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes toastOut{to{opacity:0;transform:translateY(20px)}}
+
+/* ═══ THEME TOGGLE ═══ */
+.theme-toggle{width:42px;height:42px;border-radius:11px;border:1px solid var(--glass-border);background:var(--glass-bg);color:var(--text-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .3s ease;flex-shrink:0}
 .theme-toggle:hover{background:var(--glass-hover);color:var(--accent);border-color:rgba(0,200,240,.18)}
-.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.badge-cyan{background:rgba(0,200,240,.08);color:var(--accent);border:1px solid rgba(0,200,240,.14)}
-.badge-teal{background:rgba(0,232,140,.08);color:var(--accent2);border:1px solid rgba(0,232,140,.14)}
-.badge-gold{background:rgba(255,200,48,.08);color:var(--accent3);border:1px solid rgba(255,200,48,.14)}
-.badge-rose{background:rgba(255,56,96,.08);color:var(--accent4);border:1px solid rgba(255,56,96,.14)}
-.legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block}
-.section-title{font-family:'Inter',sans-serif;font-weight:700;font-size:20px;color:var(--text-primary);letter-spacing:-.02em}
-.section-subtitle{font-family:'Inter',sans-serif;font-weight:500;font-size:14px;color:var(--text-secondary)}
-.btn-random{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:linear-gradient(135deg,rgba(255,200,48,.1),rgba(255,200,48,.05));border:1px solid rgba(255,200,48,.2);border-radius:9px;color:var(--accent3);font-family:'Inter',sans-serif;font-weight:600;font-size:12.5px;cursor:pointer;transition:all .3s ease;letter-spacing:.01em}
+
+/* ═══ RANDOM BUTTON ═══ */
+.btn-random{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;background:linear-gradient(135deg,rgba(255,200,48,.1),rgba(255,200,48,.05));border:1px solid rgba(255,200,48,.2);border-radius:9px;color:var(--accent3);font-family:'Inter',sans-serif;font-weight:600;font-size:12.5px;cursor:pointer;transition:all .3s ease;letter-spacing:.01em;border:none;outline:none}
 .btn-random:hover{background:linear-gradient(135deg,rgba(255,200,48,.18),rgba(255,200,48,.1));box-shadow:0 0 20px rgba(255,200,48,.12);transform:translateY(-1px)}
 .btn-random:active{transform:translateY(0) scale(.97)}
-@media(max-width:768px){
-  .tab-btn{padding:9px 14px;font-size:13px}
-  .tab-btn span.tab-label{display:none}
-  .section-title{font-size:18px}
+
+/* ═══ LEGEND DOT ═══ */
+.legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex-shrink:0}
+
+/* ═══ SECTION TITLES ═══ */
+.section-title{font-family:'Inter',sans-serif;font-weight:700;font-size:19px;color:var(--text-primary);letter-spacing:-.02em;line-height:1.3}
+.section-subtitle{font-family:'Inter',sans-serif;font-weight:500;font-size:14px;color:var(--text-secondary);line-height:1.4}
+
+/* ═══ RESPONSIVE UTILITIES ═══ */
+.hide-mobile{display:block}
+.show-mobile{display:none}
+.text-responsive{text-align:center}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ════════════════════════════════════════════ */
+
+/* Large Desktop (1400px+) */
+@media(min-width:1400px){
+  .main-container{max-width:1200px!important}
 }
+
+/* Desktop (1024px - 1399px) */
+@media(max-width:1200px){
+  .app-card{padding:20px}
+  .app-card-icon{width:40px;height:40px;font-size:16px}
+}
+
+/* Tablet Landscape (768px - 1023px) */
+@media(max-width:1024px){
+  :root{--radius:14px}
+  
+  header{padding:0 20px!important}
+  
+  #hero{padding-top:110px;padding-bottom:60px;padding-left:20px;padding-right:20px}
+  #hero h1{font-size:clamp(2rem,5vw,3.2rem)!important}
+  #hero p.text-lg{font-size:15px}
+  #hero p.text-sm{font-size:13px}
+  #hero button.btn-glow{padding:12px 28px;font-size:14px}
+  
+  #mod-nav{padding:0 20px;margin-bottom:20px}
+  .tab-btn{padding:9px 16px;font-size:13px}
+  .tab-btn i{font-size:12px}
+  
+  main{padding:0 20px 40px}
+  .main-container{padding:24px!important;min-height:480px!important}
+  
+  .section-title{font-size:18px}
+  .section-subtitle{font-size:13px}
+  
+  /* Grammar Designer - Stack vertically */
+  .designer-layout{flex-direction:column!important}
+  .designer-panel{min-width:100%!important;flex:none!important}
+  
+  /* Derivation - Stack sidebar below content or keep side by side if space allows */
+  .deriv-layout{flex-direction:column!important}
+  .deriv-sidebar{width:100%!important;max-width:none!important;flex:none!important}
+  .deriv-sidebar .glass{margin-bottom:16px}
+  
+  /* Parse Tree - Stack */
+  .tree-layout{flex-direction:column!important}
+  .tree-sidebar{width:100%!important;max-width:none!important;flex:none!important}
+  
+  /* Ambiguity - Stack */
+  .ambig-layout{flex-direction:column!important}
+  .ambig-sidebar{width:100%!important;max-width:none!important;flex:none!important;margin-bottom:20px}
+  
+  /* Applications Grid */
+  .apps-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))!important;gap:16px!important}
+  
+  /* Parse tree container */
+  #tree-render{min-height:280px;padding:16px}
+  
+  /* Ambiguity trees */
+  #ambigTrees{grid-template-columns:1fr!important}
+}
+
+/* Tablet Portrait (600px - 767px) */
+@media(max-width:768px){
+  :root{--radius:12px}
+  
+  body{font-size:14px}
+  
+  header{padding:0 16px!important;py:12px!important}
+  header .font-semibold{font-size:14px!important}
+  .badge{font-size:9px;padding:3px 8px}
+  
+  #hero{padding-top:100px;padding-bottom:50px;padding-left:16px;padding-right:16px}
+  #hero h1{font-size:clamp(1.75rem,4.5vw,2.8rem)!important}
+  #hero p.text-lg{font-size:14px;margin-bottom:8px!important}
+  #hero p.text-sm{font-size:12.5px;margin-bottom:24px!important}
+  #hero button.btn-glow{padding:11px 24px;font-size:13.5px}
+  #hero .flex.items-center.gap-10{gap:20px!important;font-size:11px}
+  
+  #mod-nav{padding:0 16px;margin-bottom:16px}
+  .tab-nav{padding:3px;border-radius:12px}
+  .tab-btn{padding:8px 12px;font-size:12.5px;gap:6px}
+  .tab-btn i{font-size:11px}
+  .tab-indicator{top:3px;height:calc(100% - 6px);border-radius:9px}
+  
+  main{padding:0 16px 36px}
+  .main-container{padding:20px!important;min-height:450px!important}
+  
+  .section-title{font-size:17px;margin-bottom:12px!important}
+  .section-subtitle{font-size:13px;margin-bottom:12px!important}
+  
+  /* Hide tab labels on very small screens */
+  .tab-label{display:none!important}
+  .tab-btn{padding:8px 14px!important}
+  
+  /* Inputs */
+  .cfg-input{padding:11px 14px;font-size:13px}
+  .cfg-input-sm{padding:10px 12px;font-size:12.5px}
+  
+  /* Buttons smaller */
+  .btn-glow{padding:10px 18px;font-size:13px;gap:6px}
+  .btn-sm{padding:8px 14px;font-size:12px}
+  .btn-xs{padding:6px 10px;font-size:11px}
+  
+  /* Grammar designer */
+  .designer-layout{gap:20px!important}
+  textarea#grammarInput{rows:6!important;font-size:12.5px}
+  .rule-row{font-size:12.5px;gap:6px}
+  .rule-lhs{font-size:13px}
+  
+  /* Derivation steps */
+  .deriv-step{padding:10px 12px;gap:8px}
+  .step-num{min-width:24px;height:24px;font-size:10px}
+  .step-form{font-size:12px}
+  .step-info{font-size:11px}
+  
+  /* Sidebar controls stack horizontally where possible */
+  .deriv-sidebar .flex.gap-2{flex-wrap:wrap}
+  .deriv-sidebar .btn-glow{flex:1;min-width:calc(50% - 4px)}
+  
+  /* Parse tree */
+  #tree-render{min-height:260px;padding:14px}
+  
+  /* Ambiguity */
+  .ambig-sidebar .flex.gap-2{flex-wrap:wrap}
+  .ambig-sidebar .btn-glow{flex:1;min-width:calc(50% - 4px)}
+  
+  /* Applications */
+  .apps-grid{grid-template-columns:1fr!important;gap:14px!important}
+  .app-card{padding:18px}
+  .app-card h3{font-size:14px!important}
+  .app-card p{font-size:12.5px!important}
+  .app-card .flex.flex-wrap{gap:6px!important}
+  .badge{font-size:9px;padding:3px 7px}
+  
+  /* Info boxes */
+  .glass.p-4{padding:14px!important;font-size:11.5px!important}
+  
+  /* Toast positioning */
+  #toast-box{bottom:16px;left:16px;right:16px}
+  .toast{font-size:12.5px;padding:10px 14px}
+  
+  /* Footer */
+  footer{padding:24px 16px!important;font-size:12px}
+  
+  /* Show/hide utilities */
+  .hide-mobile{display:none!important}
+  .show-mobile{display:block!important}
+  
+  /* Text alignment */
+  .text-responsive{text-align:left}
+  
+  /* Ambiguity trees container */
+  .ambig-tree-card{min-height:250px!important;padding:16px!important}
+}
+
+/* Mobile Small (480px - 599px) */
+@media(max-width:600px){
+  :root{--radius:10px}
+  
+  header{padding:0 12px!important}
+  header .w-9{width:34px!important;height:34px!important;font-size:11px!important}
+  header .font-semibold{font-size:13px!important}
+  .theme-toggle{width:38px!important;height:38px!important;font-size:14px!important}
+  
+  #hero{padding-top:90px;padding-bottom:40px;padding-left:12px;padding-right:12px}
+  #hero h1{font-size:clamp(1.5rem,4vw,2.4rem)!important;letter-spacing:-.02em!important}
+  #hero p.text-lg{font-size:13.5px}
+  #hero p.text-sm{font-size:12px;margin-bottom:20px!important}
+  #hero button.btn-glow{padding:10px 20px;font-size:13px;width:100%;max-width:280px}
+  #hero .mb-7{margin-bottom:16px!important}
+  #hero .mb-6{margin-bottom:16px!important}
+  #hero .mb-3{margin-bottom:8px!important}
+  #hero .mb-9{margin-bottom:20px!important}
+  #hero .mt-14{margin-top:24px!important}
+  #hero .flex.items-center.gap-10{flex-direction:column;gap:12px!important}
+  
+  #mod-nav{padding:0 12px;margin-bottom:14px}
+  .tab-nav{padding:3px;border-radius:10px;gap:2px}
+  .tab-btn{padding:7px 10px;font-size:12px;gap:5px;border-radius:8px}
+  .tab-btn i{font-size:10.5px}
+  .tab-indicator{top:3px;height:calc(100% - 6px);border-radius:8px}
+  
+  main{padding:0 12px 32px}
+  .main-container{padding:16px!important;min-height:420px!important}
+  
+  .section-title{font-size:16px;margin-bottom:10px!important}
+  .section-subtitle{font-size:12.5px;margin-bottom:10px!important}
+  
+  /* Labels */
+  label.text-xs{font-size:10px!important;letter-spacing:.05em!important;margin-bottom:6px!important}
+  
+  /* Inputs */
+  .cfg-input{padding:10px 12px;font-size:12.5px;border-radius:8px}
+  .cfg-input-sm{padding:9px 11px;font-size:12px;border-radius:8px}
+  
+  /* Buttons */
+  .btn-glow{padding:9px 16px;font-size:12.5px;border-radius:9px;gap:5px}
+  .btn-sm{padding:7px 12px;font-size:11.5px;border-radius:8px}
+  .btn-xs{padding:6px 10px;font-size:11px;border-radius:7px}
+  .btn-random{padding:8px 14px;font-size:11.5px}
+  
+  /* Grammar designer */
+  .designer-layout{gap:16px!important}
+  .designer-panel .flex.items-center.justify-between{flex-direction:column;align-items:flex-start!important;gap:10px!important}
+  .designer-panel .flex.gap-2{width:100%;flex-wrap:wrap}
+  .designer-panel .btn-glow{flex:1;min-width:calc(50% - 4px);font-size:11.5px}
+  textarea#grammarInput{rows:5!important;font-size:12px}
+  .formatted-grammar{min-height:180px!important;padding:14px!important}
+  .rule-row{font-size:12px;gap:5px;padding:4px 0}
+  .rule-lhs{font-size:12px}
+  .rule-arrow{font-size:11px}
+  
+  /* Flex layouts for buttons */
+  .flex.items-center.gap-4{flex-wrap:wrap;gap:10px!important}
+  .flex.items-center.gap-4 .btn-glow{flex:1;min-width:120px}
+  
+  /* Derivation module */
+  .deriv-layout{gap:16px!important}
+  .deriv-sidebar{gap:12px!important}
+  .deriv-sidebar h2{font-size:16px!important;margin-bottom:10px!important}
+  .deriv-sidebar .glass.p-4{padding:12px!important;font-size:11px!important}
+  .deriv-sidebar .flex.gap-2.mb-3{gap:6px!important}
+  .deriv-sidebar .flex.gap-2.mb-3 .btn-glow{padding:8px 10px;font-size:11px}
+  .deriv-sidebar .btn-random{font-size:11.5px}
+  .deriv-controls{gap:6px!important}
+  .deriv-controls .btn-glow{padding:8px!important;font-size:11px!important}
+  
+  /* Derivation steps area */
+  .deriv-steps-area{max-height:400px!important}
+  .deriv-step{padding:9px 10px;gap:8px;border-radius:8px}
+  .step-num{min-width:22px;height:22px;font-size:9.5px}
+  .step-form{font-size:11.5px}
+  .step-info{font-size:10.5px}
+  
+  /* Error messages */
+  .rule-error{font-size:12px;padding:8px 12px;border-radius:8px}
+  
+  /* Parse tree module */
+  .tree-layout{gap:16px!important}
+  .tree-sidebar{gap:10px!important}
+  .tree-sidebar h2{font-size:16px!important;margin-bottom:10px!important}
+  .tree-sidebar .glass.p-4{padding:12px!important;font-size:11px!important}
+  #tree-render{min-height:240px;padding:12px}
+  
+  /* Ambiguity module */
+  .ambig-module>div:first-child{margin-bottom:16px!important}
+  .ambig-module>div:first-child h2{font-size:16px!important;margin-bottom:6px!important}
+  .ambig-module>div:first-child p{font-size:12.5px!important}
+  .ambig-layout{gap:16px!important}
+  .ambig-sidebar{gap:10px!important}
+  .ambig-sidebar h2{font-size:16px!important;margin-bottom:10px!important}
+  .ambig-sidebar .flex.gap-2.mb-3{gap:6px!important}
+  .ambig-sidebar .flex.gap-2.mb-4{gap:6px!important}
+  .ambig-sidebar .btn-glow{padding:8px 10px;font-size:11px}
+  .ambig-result-text{font-size:12.5px!important}
+  #ambigTrees{gap:12px!important}
+  .ambig-tree-card{min-height:220px!important;padding:14px!important}
+  .ambig-tree-card .text-xs{font-size:10px!important}
+  
+  /* Applications module */
+  .applications-module h2{font-size:16px!important;margin-bottom:6px!important}
+  .applications-module>p{font-size:12.5px!important;margin-bottom:20px!important}
+  .apps-grid{gap:12px!important}
+  .app-card{padding:16px;border-radius:12px}
+  .app-card-icon{width:38px;height:38px;font-size:15px;margin-bottom:12px}
+  .app-card h3{font-size:13.5px!important;margin-bottom:8px!important}
+  .app-card p{font-size:12px!important;margin-bottom:12px!important;line-height:1.65!important}
+  .app-card .flex.flex-wrap{gap:5px!important}
+  .badge{font-size:8.5px;padding:2px 6px}
+  
+  /* Info panel badges */
+  #grammarInfo{gap:6px!important}
+  #grammarInfo .badge{font-size:9px;padding:3px 7px}
+  #treeStats{gap:6px!important}
+  #treeStats .badge{font-size:9px;padding:3px 7px}
+  
+  /* Toast */
+  #toast-box{bottom:12px;left:12px;right:12px}
+  .toast{font-size:12px;padding:9px 12px;max-width:100%}
+  
+  /* Tooltip */
+  #tooltip{max-width:220px;font-size:11.5px;padding:8px 12px}
+  
+  /* Footer */
+  footer{padding:20px 12px!important;font-size:11.5px}
+  
+  /* Pills in hero */
+  .pill{padding:5px 12px;font-size:10.5px}
+}
+
+/* Extra Small Mobile (< 480px) */
+@media(max-width:400px){
+  #hero h1{font-size:1.6rem!important}
+  .tab-btn{padding:6px 8px!important;font-size:11px!important}
+  .tab-btn i{font-size:10px!important}
+  .btn-glow{padding:8px 14px;font-size:12px}
+  .btn-sm{padding:7px 10px;font-size:11px}
+  .cfg-input{font-size:12px}
+  .rule-row{font-size:11px}
+  .step-form{font-size:11px}
+  .app-card{padding:14px}
+  .app-card h3{font-size:13px}
+  .app-card p{font-size:11.5px}
+}
+
+/* Prefers reduced motion */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  #bg-fx{display:none}
+}
+
+/* Safe area insets for notch phones */
+@supports(padding:max(0px)){
+  body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+  #toast-box{padding-bottom:env(safe-area-inset-bottom)}
+}
+
+/* Print styles */
+@media print{
+  #bg-fx,header,#toast-box,#tooltip,.theme-toggle,.tab-nav{display:none!important}
+  body{background:white;color:black}
+  .module{display:block!important}
+  .glass,.glass-static{background:white;border:1px solid #ccc}
 }
 </style>
 </head>
@@ -143,105 +501,107 @@ body{
 <div id="tooltip"></div>
 <div id="toast-box"></div>
 
-<header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between" style="background:linear-gradient(to bottom,var(--bg-primary) 40%,transparent)">
-  <div class="flex items-center gap-3">
-    <div class="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold" style="background:linear-gradient(135deg,rgba(0,200,240,.15),rgba(0,232,140,.1));border:1px solid rgba(0,200,240,.2);color:var(--accent);font-family:'Inter',sans-serif">CF</div>
-    <span class="font-semibold text-base" style="color:var(--text-primary);font-family:'Inter',sans-serif;letter-spacing:-.01em">CFG Studio</span>
+<!-- ═══ HEADER ═══ -->
+<header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-3 md:py-4 flex items-center justify-between" style="background:linear-gradient(to bottom,var(--bg-primary) 40%,transparent)">
+  <div class="flex items-center gap-2 md:gap-3">
+    <div class="w-8 h-8 md:w-9 md:h-9 rounded-lg flex items-center justify-center text-[10px] md:text-xs font-bold flex-shrink-0" style="background:linear-gradient(135deg,rgba(0,200,240,.15),rgba(0,232,140,.1));border:1px solid rgba(0,200,240,.2);color:var(--accent);font-family:'Inter',sans-serif">CF</div>
+    <span class="font-semibold text-sm md:text-base" style="color:var(--text-primary);font-family:'Inter',sans-serif;letter-spacing:-.01em">CFG Studio</span>
     <span class="badge badge-cyan ml-1 hidden sm:inline-flex">Beta</span>
   </div>
-  <div class="flex items-center gap-3">
-    <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
-  </div>
+  <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
 </header>
 
-<section id="hero" class="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-36 pb-20">
-  <div class="mb-7 flex items-center gap-3 flex-wrap justify-center">
+<!-- ═══ HERO SECTION ═══ -->
+<section id="hero" class="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 pt-28 md:pt-36 pb-16 md:pb-20">
+  <div class="mb-5 md:mb-7 flex items-center gap-2 md:gap-3 flex-wrap justify-center">
     <span class="pill" style="background:rgba(0,232,140,.06);color:var(--accent2);border-color:rgba(0,232,140,.15)">CONTEXT-FREE GRAMMARS</span>
     <span class="pill" style="background:rgba(0,200,240,.06);color:var(--accent);border-color:rgba(0,200,240,.15)">INTERACTIVE</span>
   </div>
-  <h1 class="font-bold tracking-tight leading-none mb-6" style="font-size:clamp(2.6rem,6.5vw,4.2rem);font-family:'Inter',sans-serif;letter-spacing:-.03em">
+  <h1 class="font-bold tracking-tight leading-none mb-4 md:mb-6" style="font-size:clamp(2rem,5.5vw,3.5rem);font-family:'Inter',sans-serif;letter-spacing:-.03em">
     <span style="background:linear-gradient(135deg,#00c8f0 0%,#00e88c 45%,#00c8f0 100%);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gShift 5s ease infinite">CFG Studio</span>
   </h1>
   <style>@keyframes gShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}</style>
-  <p class="text-lg max-w-xl mb-3" style="color:var(--text-secondary);line-height:1.75;font-weight:400">Explore the Structure of Language through Context-Free Grammars</p>
-  <p class="text-sm max-w-lg mb-9" style="color:var(--text-muted);line-height:1.75;font-weight:400">Design grammars, visualize derivations step-by-step, generate parse trees, and detect ambiguity — all in one interactive environment.</p>
-  <button class="btn-glow" style="padding:14px 32px;font-size:15px" onclick="document.getElementById('mod-nav').scrollIntoView({behavior:'smooth'})">
-    <i class="fa-solid fa-play" style="font-size:12px"></i> Get Started
+  <p class="text-base md:text-lg max-w-xl mb-2 md:mb-3" style="color:var(--text-secondary);line-height:1.7;font-weight:400">Explore the Structure of Language through Context-Free Grammars</p>
+  <p class="text-xs md:text-sm max-w-lg mb-6 md:mb-9" style="color:var(--text-muted);line-height:1.7;font-weight:400">Design grammars, visualize derivations step-by-step, generate parse trees, and detect ambiguity — all in one interactive environment.</p>
+  <button class="btn-glow" style="padding:12px 28px;font-size:14px" onclick="document.getElementById('mod-nav').scrollIntoView({behavior:'smooth'})">
+    <i class="fa-solid fa-play" style="font-size:11px"></i> Get Started
   </button>
-  <div class="mt-14 flex items-center gap-10 text-xs" style="color:var(--text-muted);font-weight:500">
-    <span><i class="fa-solid fa-diagram-project mr-1.5" style="color:var(--accent)"></i> Parse Trees</span>
-    <span><i class="fa-solid fa-code-branch mr-1.5" style="color:var(--accent2)"></i> Derivations</span>
-    <span><i class="fa-solid fa-triangle-exclamation mr-1.5" style="color:var(--accent3)"></i> Ambiguity</span>
+  <div class="mt-10 md:mt-14 flex items-center gap-6 md:gap-10 text-[11px] md:text-xs" style="color:var(--text-muted);font-weight:500">
+    <span><i class="fa-solid fa-diagram-project mr-1 md:mr-1.5" style="color:var(--accent)"></i> <span class="hidden xs:inline">Parse </span>Trees</span>
+    <span><i class="fa-solid fa-code-branch mr-1 md:mr-1.5" style="color:var(--accent2)"></i> <span class="hidden xs:inline">Derivations</span></span>
+    <span><i class="fa-solid fa-triangle-exclamation mr-1 md:mr-1.5" style="color:var(--accent3)"></i> <span class="hidden xs:inline">Ambiguity</span></span>
   </div>
 </section>
 
-<nav id="mod-nav" class="relative z-10 px-4 md:px-8 mb-7">
+<!-- ═══ TAB NAVIGATION ═══ -->
+<nav id="mod-nav" class="relative z-10 px-3 md:px-4 lg:px-8 mb-5 md:mb-7">
   <div class="max-w-4xl mx-auto">
     <div class="tab-nav" id="tabNav">
       <div class="tab-indicator" id="tabIndicator"></div>
       <button class="tab-btn active" data-tab="designer" onclick="switchTab('designer',this)">
-        <i class="fa-solid fa-pen-ruler" style="font-size:13px"></i><span class="tab-label">Grammar Designer</span>
+        <i class="fa-solid fa-pen-ruler" style="font-size:12px"></i><span class="tab-label">Grammar Designer</span>
       </button>
       <button class="tab-btn" data-tab="derivation" onclick="switchTab('derivation',this)">
-        <i class="fa-solid fa-route" style="font-size:13px"></i><span class="tab-label">Derivation Visualizer</span>
+        <i class="fa-solid fa-route" style="font-size:12px"></i><span class="tab-label">Derivation Visualizer</span>
       </button>
       <button class="tab-btn" data-tab="parsetree" onclick="switchTab('parsetree',this)">
-        <i class="fa-solid fa-sitemap" style="font-size:13px"></i><span class="tab-label">Parse Tree</span>
+        <i class="fa-solid fa-sitemap" style="font-size:12px"></i><span class="tab-label">Parse Tree</span>
       </button>
       <button class="tab-btn" data-tab="ambiguity" onclick="switchTab('ambiguity',this)">
-        <i class="fa-solid fa-code-branch" style="font-size:13px"></i><span class="tab-label">Ambiguity</span>
+        <i class="fa-solid fa-code-branch" style="font-size:12px"></i><span class="tab-label">Ambiguity</span>
       </button>
       <button class="tab-btn" data-tab="applications" onclick="switchTab('applications',this)">
-        <i class="fa-solid fa-lightbulb" style="font-size:13px"></i><span class="tab-label">Applications</span>
+        <i class="fa-solid fa-lightbulb" style="font-size:12px"></i><span class="tab-label">Applications</span>
       </button>
     </div>
   </div>
 </nav>
 
-<main class="relative z-10 px-4 md:px-8 pb-24">
-  <div class="max-w-5xl mx-auto glass-static p-7 md:p-9" id="mainPanel" style="min-height:520px">
+<!-- ═══ MAIN CONTENT ═══ -->
+<main class="relative z-10 px-3 md:px-4 lg:px-8 pb-16 md:pb-24">
+  <div class="max-w-5xl mx-auto main-container glass-static p-5 md:p-7 lg:p-9" id="mainPanel" style="min-height:480px">
 
-    <!-- Grammar Designer -->
+    <!-- ═══ Grammar Designer Module ═══ -->
     <div class="module active" id="mod-designer">
-      <div class="flex flex-col lg:flex-row gap-7">
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center justify-between mb-5 gap-3 flex-wrap">
+      <div class="flex flex-col lg:flex-row gap-5 md:gap-7 designer-layout">
+        <div class="flex-1 min-w-0 designer-panel">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 md:mb-5 gap-3">
             <h2 class="section-title">Grammar Rules</h2>
-            <div class="flex gap-2 flex-wrap">
-              <button class="btn-glow btn-sm" onclick="loadExample('balanced')"><i class="fa-solid fa-flask"></i> Balanced</button>
-              <button class="btn-glow btn-sm" onclick="loadExample('expr')"><i class="fa-solid fa-calculator"></i> Expressions</button>
-              <button class="btn-glow btn-sm" onclick="loadExample('palindrome')"><i class="fa-solid fa-rotate"></i> Palindrome</button>
+            <div class="flex gap-2 flex-wrap w-full sm:w-auto">
+              <button class="btn-glow btn-sm btn-xs:sm" onclick="loadExample('balanced')"><i class="fa-solid fa-flask"></i><span class="hidden xs:inline"> Balanced</span></button>
+              <button class="btn-glow btn-sm btn-xs:sm" onclick="loadExample('expr')"><i class="fa-solid fa-calculator"></i><span class="hidden xs:inline"> Expressions</span></button>
+              <button class="btn-glow btn-sm btn-xs:sm" onclick="loadExample('palindrome')"><i class="fa-solid fa-rotate"></i><span class="hidden xs:inline"> Palindrome</span></button>
             </div>
           </div>
-          <textarea id="grammarInput" class="cfg-input" rows="8" placeholder="S -> a S b | a b&#10;&#10;One rule per line. Use | for alternatives.&#10;Use ε for empty string." spellcheck="false">S -> a S b | a b</textarea>
-          <div class="flex items-center gap-4 mt-4">
-            <button class="btn-glow" onclick="validateGrammar()"><i class="fa-solid fa-check"></i> Validate & Format</button>
+          <textarea id="grammarInput" class="cfg-input" rows="7 md:rows-8" placeholder="S -> a S b | a b&#10;&#10;One rule per line. Use | for alternatives.&#10;Use ε for empty string." spellcheck="false">S -> a S b | a b</textarea>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 mt-4">
+            <button class="btn-glow w-full sm:w-auto" onclick="validateGrammar()"><i class="fa-solid fa-check"></i> Validate & Format</button>
             <span id="grammarStatus" class="text-sm" style="color:var(--text-muted)"></span>
           </div>
         </div>
-        <div class="flex-1 min-w-0">
-          <h3 class="section-subtitle mb-4">Formatted Grammar</h3>
-          <div id="formattedGrammar" class="glass p-5" style="min-height:220px">
-            <p style="color:var(--text-muted);font-size:13.5px">Click "Validate & Format" to see your grammar displayed here.</p>
+        <div class="flex-1 min-w-0 designer-panel">
+          <h3 class="section-subtitle mb-3 md:mb-4">Formatted Grammar</h3>
+          <div id="formattedGrammar" class="glass p-4 md:p-5 formatted-grammar" style="min-height:180px;min-height:200px">
+            <p style="color:var(--text-muted);font-size:12.5px">Click "Validate & Format" to see your grammar displayed here.</p>
           </div>
-          <div id="grammarInfo" class="mt-4 flex flex-wrap gap-2" style="display:none"></div>
+          <div id="grammarInfo" class="mt-3 md:mt-4 flex flex-wrap gap-2" style="display:none"></div>
         </div>
       </div>
     </div>
 
-    <!-- Derivation Visualizer -->
+    <!-- ═══ Derivation Visualizer Module ═══ -->
     <div class="module" id="mod-derivation">
-      <div class="flex flex-col lg:flex-row gap-7">
-        <div class="lg:w-[270px] flex-shrink-0">
-          <h2 class="section-title mb-5">Derivation</h2>
+      <div class="flex flex-col lg:flex-row gap-5 md:gap-7 deriv-layout">
+        <div class="w-full lg:w-[260px] flex-shrink-0 deriv-sidebar">
+          <h2 class="section-title mb-4">Derivation</h2>
           <label class="text-xs font-medium mb-2 block" style="color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em">Input String</label>
-          <input id="derivInput" class="cfg-input cfg-input-sm mb-4" placeholder="e.g. aabb" value="aabb" spellcheck="false">
+          <input id="derivInput" class="cfg-input cfg-input-sm mb-3" placeholder="e.g. aabb" value="aabb" spellcheck="false">
           <div class="flex gap-2 mb-3">
-            <button class="btn-glow btn-sm flex-1" id="derivLeftBtn" onclick="runDerivation('left')"><i class="fa-solid fa-arrow-left"></i> Leftmost</button>
-            <button class="btn-glow btn-sm flex-1" id="derivRightBtn" onclick="runDerivation('right')"><i class="fa-solid fa-arrow-right"></i> Rightmost</button>
+            <button class="btn-glow btn-sm flex-1" id="derivLeftBtn" onclick="runDerivation('left')"><i class="fa-solid fa-arrow-left"></i> <span class="hidden xs:inline">Leftmost</span></button>
+            <button class="btn-glow btn-sm flex-1" id="derivRightBtn" onclick="runDerivation('right')"><i class="fa-solid fa-arrow-right"></i> <span class="hidden xs:inline">Rightmost</span></button>
           </div>
-          <button class="btn-random w-full mb-4" onclick="randomDerivInput()"><i class="fa-solid fa-dice"></i> Random Valid String</button>
-          <div id="derivControls" style="display:none" class="flex flex-col gap-2.5">
+          <button class="btn-random w-full mb-3 md:mb-4" onclick="randomDerivInput()"><i class="fa-solid fa-dice"></i> Random String</button>
+          <div id="derivControls" style="display:none" class="flex flex-col gap-2.5 deriv-controls">
             <div class="flex gap-2">
               <button class="btn-glow btn-sm flex-1" onclick="derivStep(-1)"><i class="fa-solid fa-backward-step"></i></button>
               <button class="btn-glow btn-sm flex-1" onclick="derivStep(1)"><i class="fa-solid fa-forward-step"></i></button>
@@ -250,70 +610,70 @@ body{
             <p class="text-center text-xs" style="color:var(--text-muted)">Step <span id="derivStepNum">0</span> / <span id="derivStepTotal">0</span></p>
           </div>
           <div id="derivError" class="rule-error mt-3" style="display:none"></div>
-          <div class="mt-5 glass p-4" style="font-size:12px;color:var(--text-muted);line-height:1.7">
+          <div class="mt-4 glass p-4" style="font-size:11.5px;color:var(--text-muted);line-height:1.7">
             <strong style="color:var(--text-secondary)">How it works</strong><br>
             <span data-tip="A leftmost derivation always replaces the leftmost non-terminal symbol first at each step." style="color:var(--accent);cursor:help;border-bottom:1px dashed rgba(0,200,240,.3)">Leftmost</span> replaces the leftmost non-terminal. <span data-tip="Rightmost derivations are used in bottom-up parsing algorithms like LR parsing." style="color:var(--accent2);cursor:help;border-bottom:1px dashed rgba(0,232,140,.3)">Rightmost</span> does the opposite.
           </div>
         </div>
         <div class="flex-1 min-w-0">
-          <h3 class="section-subtitle mb-4">Derivation Steps</h3>
-          <div id="derivSteps" class="space-y-0" style="max-height:540px;overflow-y:auto;padding-right:4px">
-            <p style="color:var(--text-muted);font-size:13.5px">Select a derivation type to see steps.</p>
+          <h3 class="section-subtitle mb-3 md:mb-4">Derivation Steps</h3>
+          <div id="derivSteps" class="space-y-0 deriv-steps-area" style="max-height:480px;max-height:540px;overflow-y:auto;padding-right:4px;-webkit-overflow-scrolling:touch">
+            <p style="color:var(--text-muted);font-size:12.5px">Select a derivation type to see steps.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Parse Tree -->
+    <!-- ═══ Parse Tree Module ═══ -->
     <div class="module" id="mod-parsetree">
-      <div class="flex flex-col lg:flex-row gap-7">
-        <div class="lg:w-[250px] flex-shrink-0">
-          <h2 class="section-title mb-5">Parse Tree</h2>
+      <div class="flex flex-col lg:flex-row gap-5 md:gap-7 tree-layout">
+        <div class="w-full lg:w-[240px] flex-shrink-0 tree-sidebar">
+          <h2 class="section-title mb-4">Parse Tree</h2>
           <label class="text-xs font-medium mb-2 block" style="color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em">Input String</label>
           <input id="treeInput" class="cfg-input cfg-input-sm mb-3" placeholder="e.g. aabb" value="aabb" spellcheck="false">
           <button class="btn-glow w-full mb-3" onclick="generateParseTree()"><i class="fa-solid fa-sitemap"></i> Generate Tree</button>
-          <button class="btn-random w-full mb-4" onclick="randomTreeInput()"><i class="fa-solid fa-dice"></i> Random Valid String</button>
+          <button class="btn-random w-full mb-3 md:mb-4" onclick="randomTreeInput()"><i class="fa-solid fa-dice"></i> Random String</button>
           <div id="treeError" class="rule-error mb-3" style="display:none"></div>
-          <div class="glass p-4 mb-4" style="font-size:12px;color:var(--text-muted);line-height:1.8">
+          <div class="glass p-4 mb-4" style="font-size:11.5px;color:var(--text-muted);line-height:1.8">
             <strong style="color:var(--text-secondary)">Legend</strong><br>
-            <span class="legend-dot mr-1.5" style="background:var(--accent)"></span> Non-terminal<br>
-            <span class="legend-dot mr-1.5" style="background:var(--accent2)"></span> Terminal<br>
-            <span class="legend-dot mr-1.5" style="background:var(--accent3)"></span> Epsilon (ε)
+            <div class="flex items-center gap-2 mt-1"><span class="legend-dot" style="background:var(--accent)"></span> Non-terminal</div>
+            <div class="flex items-center gap-2 mt-1"><span class="legend-dot" style="background:var(--accent2)"></span> Terminal</div>
+            <div class="flex items-center gap-2 mt-1"><span class="legend-dot" style="background:var(--accent3)"></span> Epsilon (ε)</div>
           </div>
           <div id="treeStats" class="flex flex-wrap gap-2" style="display:none"></div>
         </div>
         <div class="flex-1 min-w-0">
-          <div id="tree-render" class="glass" style="min-height:420px">
-            <p style="color:var(--text-muted);font-size:13.5px" id="treePlaceholder">Enter a string and click "Generate Tree" to visualize the parse tree.</p>
+          <div id="tree-render" class="glass" style="min-height:350px;min-height:420px">
+            <p style="color:var(--text-muted);font-size:12.5px" id="treePlaceholder">Enter a string and click "Generate Tree" to visualize the parse tree.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Ambiguity -->
-    <div class="module" id="mod-ambiguity">
-      <div class="flex flex-col gap-7">
+    <!-- ═══ Ambiguity Checker Module ═══ -->
+    <div class="module ambig-module" id="mod-ambiguity">
+      <div class="flex flex-col gap-5 md:gap-7">
         <div>
           <h2 class="section-title mb-2">Ambiguity Checker</h2>
-          <p class="text-sm" style="color:var(--text-muted);line-height:1.7">A grammar is <strong style="color:var(--accent3)">ambiguous</strong> if at least one string in its language has two or more distinct parse trees.</p>
+          <p class="text-xs md:text-sm" style="color:var(--text-muted);line-height:1.7">A grammar is <strong style="color:var(--accent3)">ambiguous</strong> if at least one string in its language has two or more distinct parse trees.</p>
         </div>
-        <div class="flex flex-col lg:flex-row gap-6 items-start">
-          <div class="lg:w-[260px] flex-shrink-0">
+        <div class="flex flex-col lg:flex-row gap-5 md:gap-6 items-start ambig-layout">
+          <div class="w-full lg:w-[250px] flex-shrink-0 ambig-sidebar">
             <label class="text-xs font-medium mb-2 block" style="color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em">Test String</label>
             <input id="ambigInput" class="cfg-input cfg-input-sm mb-3" placeholder="e.g. id+id*id" value="id+id*id" spellcheck="false">
             <button class="btn-glow w-full mb-3" onclick="checkAmbiguity()"><i class="fa-solid fa-code-branch"></i> Check Ambiguity</button>
-            <button class="btn-random w-full mb-4" onclick="randomAmbigInput()"><i class="fa-solid fa-dice"></i> Random Test String</button>
+            <button class="btn-random w-full mb-3 md:mb-4" onclick="randomAmbigInput()"><i class="fa-solid fa-dice"></i> Random String</button>
             <div class="flex gap-2 mb-4">
               <button class="btn-glow btn-sm flex-1" onclick="loadAmbigExample('expr')"><i class="fa-solid fa-calculator"></i> Expr</button>
               <button class="btn-glow btn-sm flex-1" onclick="loadAmbigExample('dangling')"><i class="fa-solid fa-link"></i> Dangling</button>
             </div>
             <div id="ambigError" class="rule-error" style="display:none"></div>
-            <div id="ambigResult" class="glass p-4" style="display:none"></div>
+            <div id="ambigResult" class="glass p-4 ambig-result-text" style="display:none"></div>
           </div>
           <div class="flex-1 min-w-0">
-            <div id="ambigTrees" class="grid gap-5" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
-              <div class="glass p-6 flex items-center justify-center" style="min-height:300px">
-                <p style="color:var(--text-muted);font-size:13.5px">Parse trees will appear here when ambiguity is detected.</p>
+            <div id="ambigTrees" class="grid gap-4 md:gap-5" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+              <div class="glass p-4 md:p-6 flex items-center justify-center ambig-tree-card" style="min-height:260px;min-height:300px">
+                <p style="color:var(--text-muted);font-size:12.5px;text-align:center">Parse trees will appear here when ambiguity is detected.</p>
               </div>
             </div>
           </div>
@@ -321,45 +681,45 @@ body{
       </div>
     </div>
 
-    <!-- Applications -->
-    <div class="module" id="mod-applications">
+    <!-- ═══ Applications Module ═══ -->
+    <div class="module applications-module" id="mod-applications">
       <h2 class="section-title mb-2">Applications of Context-Free Grammars</h2>
-      <p class="text-sm mb-8" style="color:var(--text-muted);line-height:1.7">CFGs are foundational to computer science. Here are their most impactful real-world applications.</p>
-      <div class="grid gap-5" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <p class="text-xs md:text-sm mb-6 md:mb-8" style="color:var(--text-muted);line-height:1.7">CFGs are foundational to computer science. Here are their most impactful real-world applications.</p>
+      <div class="grid gap-4 md:gap-5 apps-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
         <div class="glass app-card" data-tilt>
           <div class="app-card-icon" style="background:rgba(0,200,240,.08);color:var(--accent)"><i class="fa-solid fa-microchip"></i></div>
-          <h3 class="font-semibold text-[15px] mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Compiler Design</h3>
-          <p class="text-[13px] mb-4" style="color:var(--text-secondary);line-height:1.75">CFGs define the syntax of programming languages. Parsers use them to build Abstract Syntax Trees from source code — the backbone of every compiler.</p>
+          <h3 class="font-semibold text-[14px] md:text-[15px] mb-2 md:mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Compiler Design</h3>
+          <p class="text-[12px] md:text-[13px] mb-3 md:mb-4" style="color:var(--text-secondary);line-height:1.7">CFGs define the syntax of programming languages. Parsers use them to build Abstract Syntax Trees from source code.</p>
           <div class="flex flex-wrap gap-1.5"><span class="badge badge-cyan">Syntax Analysis</span><span class="badge badge-teal">AST</span><span class="badge badge-gold">LL/LR</span></div>
         </div>
         <div class="glass app-card" data-tilt>
           <div class="app-card-icon" style="background:rgba(0,232,140,.08);color:var(--accent2)"><i class="fa-solid fa-code"></i></div>
-          <h3 class="font-semibold text-[15px] mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Programming Languages</h3>
-          <p class="text-[13px] mb-4" style="color:var(--text-secondary);line-height:1.75">Every programming language's syntax is specified using a CFG in BNF or EBNF notation, enabling syntax highlighting, linting, and IDE features.</p>
+          <h3 class="font-semibold text-[14px] md:text-[15px] mb-2 md:mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Programming Languages</h3>
+          <p class="text-[12px] md:text-[13px] mb-3 md:mb-4" style="color:var(--text-secondary);line-height:1.7">Every programming language's syntax is specified using a CFG in BNF notation, enabling IDE features and linting.</p>
           <div class="flex flex-wrap gap-1.5"><span class="badge badge-teal">BNF</span><span class="badge badge-cyan">EBNF</span><span class="badge badge-gold">Specs</span></div>
         </div>
         <div class="glass app-card" data-tilt>
           <div class="app-card-icon" style="background:rgba(255,200,48,.08);color:var(--accent3)"><i class="fa-solid fa-language"></i></div>
-          <h3 class="font-semibold text-[15px] mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Natural Language Processing</h3>
-          <p class="text-[13px] mb-4" style="color:var(--text-secondary);line-height:1.75">CFGs model the hierarchical structure of natural language — noun phrases, verb phrases — enabling syntactic parsing and understanding.</p>
+          <h3 class="font-semibold text-[14px] md:text-[15px] mb-2 md:mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Natural Language Processing</h3>
+          <p class="text-[12px] md:text-[13px] mb-3 md:mb-4" style="color:var(--text-secondary);line-height:1.7">CFGs model the hierarchical structure of natural language — noun phrases, verb phrases — enabling parsing.</p>
           <div class="flex flex-wrap gap-1.5"><span class="badge badge-gold">Syntax Trees</span><span class="badge badge-rose">Parsing</span><span class="badge badge-cyan">Linguistics</span></div>
         </div>
         <div class="glass app-card" data-tilt>
           <div class="app-card-icon" style="background:rgba(255,56,96,.08);color:var(--accent4)"><i class="fa-solid fa-file-code"></i></div>
-          <h3 class="font-semibold text-[15px] mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Document Formats</h3>
-          <p class="text-[13px] mb-4" style="color:var(--text-secondary);line-height:1.75">XML, HTML, and JSON have grammars that define valid structure. DTDs and XML Schema use CFG-like rules for document validation.</p>
+          <h3 class="font-semibold text-[14px] md:text-[15px] mb-2 md:mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Document Formats</h3>
+          <p class="text-[12px] md:text-[13px] mb-3 md:mb-4" style="color:var(--text-secondary);line-height:1.7">XML, HTML, and JSON have grammars that define valid structure. DTDs use CFG-like rules for validation.</p>
           <div class="flex flex-wrap gap-1.5"><span class="badge badge-rose">XML DTD</span><span class="badge badge-cyan">HTML</span><span class="badge badge-teal">Validation</span></div>
         </div>
         <div class="glass app-card" data-tilt>
           <div class="app-card-icon" style="background:rgba(0,200,240,.08);color:var(--accent)"><i class="fa-solid fa-database"></i></div>
-          <h3 class="font-semibold text-[15px] mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Query Languages</h3>
-          <p class="text-[13px] mb-4" style="color:var(--text-secondary);line-height:1.75">SQL, XPath, and other query languages have CFG-defined syntax. Parsers translate human-readable queries into optimized execution plans.</p>
+          <h3 class="font-semibold text-[14px] md:text-[15px] mb-2 md:mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Query Languages</h3>
+          <p class="text-[12px] md:text-[13px] mb-3 md:mb-4" style="color:var(--text-secondary);line-height:1.7">SQL, XPath have CFG-defined syntax. Parsers translate human-readable queries into execution plans.</p>
           <div class="flex flex-wrap gap-1.5"><span class="badge badge-cyan">SQL</span><span class="badge badge-gold">XPath</span><span class="badge badge-teal">Plans</span></div>
         </div>
         <div class="glass app-card" data-tilt>
           <div class="app-card-icon" style="background:rgba(0,232,140,.08);color:var(--accent2)"><i class="fa-solid fa-dna"></i></div>
-          <h3 class="font-semibold text-[15px] mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Bioinformatics</h3>
-          <p class="text-[13px] mb-4" style="color:var(--text-secondary);line-height:1.75">Stochastic CFGs model RNA secondary structure and protein folding, where base-pairing rules mirror grammar production rules.</p>
+          <h3 class="font-semibold text-[14px] md:text-[15px] mb-2 md:mb-2.5" style="color:var(--text-primary);letter-spacing:-.01em">Bioinformatics</h3>
+          <p class="text-[12px] md:text-[13px] mb-3 md:mb-4" style="color:var(--text-secondary);line-height:1.7">Stochastic CFGs model RNA secondary structure, where base-pairing rules mirror grammar productions.</p>
           <div class="flex flex-wrap gap-1.5"><span class="badge badge-teal">RNA</span><span class="badge badge-rose">SCFG</span><span class="badge badge-gold">Folding</span></div>
         </div>
       </div>
@@ -368,13 +728,13 @@ body{
   </div>
 </main>
 
-<footer class="relative z-10 text-center py-10 px-4" style="font-size:13px;color:var(--text-muted)">
+<footer class="relative z-10 text-center py-8 md:py-10 px-4" style="font-size:12px;color:var(--text-muted)">
   <p>CFG Studio — Interactive Context-Free Grammar Explorer</p>
 </footer>
 
 <script>
 /* ══════════════════════════════════════════════════════════════════
-   CFG STUDIO - COMPLETE REBUILD OF CORE FUNCTIONALITY
+   CFG STUDIO - FULLY RESPONSIVE VERSION
    ══════════════════════════════════════════════════════════════════ */
 
 /* ────────────────────────────────────────────────
@@ -406,6 +766,10 @@ function switchTab(id, btn) {
   document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
   document.getElementById('mod-' + id).classList.add('active');
   updateIndicator(btn);
+  // Scroll to top of main content on mobile
+  if (window.innerWidth < 768) {
+    document.getElementById('mainPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 function updateIndicator(btn) {
@@ -415,33 +779,111 @@ function updateIndicator(btn) {
   const br = btn.getBoundingClientRect();
   ind.style.left = (br.left - nr.left + nav.scrollLeft) + 'px';
   ind.style.width = br.width + 'px';
+  
+  // Ensure indicator stays visible during scroll
+  const navScrollLeft = nav.scrollLeft;
+  const indLeft = parseFloat(ind.style.left);
+  if (indLeft < navScrollLeft) {
+    nav.scrollTo({ left: indLeft - 10, behavior: 'smooth' });
+  } else if (indLeft + br.width > navScrollLeft + nav.clientWidth) {
+    nav.scrollTo({ left: indLeft + br.width - nav.clientWidth + 10, behavior: 'smooth' });
+  }
 }
 
-window.addEventListener('load', () => {
+// Initialize indicator on load
+function initIndicator() {
   const a = document.querySelector('.tab-btn.active');
   if (a) updateIndicator(a);
-});
+}
+
+window.addEventListener('load', initIndicator);
 window.addEventListener('resize', () => {
-  const a = document.querySelector('.tab-btn.active');
-  if (a) updateIndicator(a);
+  requestAnimationFrame(initIndicator);
+});
+
+/* ────────────────────────────────────────────────
+   TOUCH-FRIENDLY TAB SCROLLING
+   ──────────────────────────────────────────────── */
+const tabNav = document.getElementById('tabNav');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+tabNav.addEventListener('mousedown', (e) => {
+  isDown = true;
+  tabNav.style.cursor = 'grabbing';
+  startX = e.pageX - tabNav.offsetLeft;
+  scrollLeft = tabNav.scrollLeft;
+});
+
+tabNav.addEventListener('mouseleave', () => {
+  isDown = false;
+  tabNav.style.cursor = 'grab';
+});
+
+tabNav.addEventListener('mouseup', () => {
+  isDown = false;
+  tabNav.style.cursor = 'grab';
+});
+
+tabNav.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - tabNav.offsetLeft;
+  const walk = (x - startX) * 2;
+  tabNav.scrollLeft = scrollLeft - walk;
 });
 
 /* ────────────────────────────────────────────────
    TOOLTIP SYSTEM
    ──────────────────────────────────────────────── */
 const tip = document.getElementById('tooltip');
+
 document.addEventListener('mouseover', e => {
   const t = e.target.closest('[data-tip]');
-  if (t) { tip.textContent = t.dataset.tip; tip.classList.add('show'); posTip(e); }
+  if (t) { 
+    tip.textContent = t.dataset.tip; 
+    tip.classList.add('show'); 
+    posTip(e); 
+  }
 });
-document.addEventListener('mousemove', e => { if (tip.classList.contains('show')) posTip(e); });
-document.addEventListener('mouseout', e => { if (e.target.closest('[data-tip]')) tip.classList.remove('show'); });
+
+document.addEventListener('mousemove', e => { 
+  if (tip.classList.contains('show')) posTip(e); 
+});
+
+document.addEventListener('mouseout', e => { 
+  if (e.target.closest('[data-tip]')) tip.classList.remove('show'); 
+});
+
+// Touch support for tooltips (tap to show)
+document.addEventListener('touchstart', e => {
+  const t = e.target.closest('[data-tip]');
+  if (t) { 
+    tip.textContent = t.dataset.tip; 
+    tip.classList.add('show'); 
+    // Position near tapped element
+    const rect = t.getBoundingClientRect();
+    tip.style.left = Math.min(rect.left, window.innerWidth - 280) + 'px';
+    tip.style.top = (rect.bottom + 8) + 'px';
+    // Auto-hide after 3 seconds
+    setTimeout(() => tip.classList.remove('show'), 3000);
+  }
+}, { passive: true });
 
 function posTip(e) {
   let x = e.clientX + 14, y = e.clientY + 14;
-  if (x + 280 > window.innerWidth) x = e.clientX - 284;
-  if (y + 80 > window.innerHeight) y = e.clientY - 80;
-  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  const tipWidth = 270;
+  const tipHeight = 80;
+  
+  // Keep tooltip within viewport
+  if (x + tipWidth > window.innerWidth) x = e.clientX - tipWidth - 14;
+  if (y + tipHeight > window.innerHeight) y = e.clientY - tipHeight - 14;
+  if (x < 0) x = 10;
+  if (y < 0) y = 10;
+  
+  tip.style.left = x + 'px'; 
+  tip.style.top = y + 'px';
 }
 
 /* ────────────────────────────────────────────────
@@ -453,419 +895,232 @@ function showToast(msg, type = 'info') {
   t.className = 'toast toast-' + type;
   t.textContent = msg;
   box.appendChild(t);
-  setTimeout(() => { t.style.animation = 'toastOut .3s ease forwards'; setTimeout(() => t.remove(), 300); }, 3000);
+  
+  // Auto-remove after 3 seconds
+  setTimeout(() => { 
+    t.style.animation = 'toastOut .3s ease forwards'; 
+    setTimeout(() => t.remove(), 300); 
+  }, 3000);
 }
 
 /* ────────────────────────────────────────────────
-   3D TILT EFFECT
+   3D TILT EFFECT (Desktop only)
    ──────────────────────────────────────────────── */
 function initTilt(el, mx = 5) {
-  el.addEventListener('mousemove', e => {
-    const r = el.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    el.style.transform = `perspective(800px) rotateY(${x * mx}deg) rotateX(${-y * mx}deg) scale(1.015)`;
-  });
-  el.addEventListener('mouseleave', () => { el.style.transform = 'perspective(800px) rotateY(0) rotateX(0) scale(1)'; });
+  // Only enable tilt on larger screens with mouse
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      el.style.transform = `perspective(800px) rotateY(${x * mx}deg) rotateX(${-y * mx}deg) scale(1.015)`;
+    });
+    el.addEventListener('mouseleave', () => { 
+      el.style.transform = 'perspective(800px) rotateY(0) rotateX(0) scale(1)'; 
+    });
+  }
 }
+
+// Initialize tilt on load
 document.querySelectorAll('[data-tilt]').forEach(initTilt);
 
 /* ────────────────────────────────────────────────
-   MOUSE PARALLAX BACKGROUND
+   MOUSE PARALLAX BACKGROUND (Reduced on mobile)
    ──────────────────────────────────────────────── */
 const bgFx = document.getElementById('bg-fx');
-document.addEventListener('mousemove', e => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 2;
-  const y = (e.clientY / window.innerHeight - 0.5) * 2;
-  bgFx.style.transform = `translate(${x * 12}px, ${y * 8}px)`;
-});
+
+// Check if device has coarse pointer (touch)
+const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+
+if (!isTouchDevice) {
+  document.addEventListener('mousemove', e => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 2;
+    const y = (e.clientY / window.innerHeight - 0.5) * 2;
+    bgFx.style.transform = `translate(${x * 12}px, ${y * 8}px)`;
+  });
+} else {
+  // Subtle gyroscope effect on mobile (optional - disabled by default)
+  // Could add deviceorientation listener here
+}
 
 /* ══════════════════════════════════════════════════════════════════
-   GRAMMAR PARSER - ROBUST & CLEAN
+   GRAMMAR PARSER
    ══════════════════════════════════════════════════════════════════ */
 
-/**
- * Tokenize a production right-hand side into symbols.
- * Handles multi-character terminals, spaces, epsilon.
- */
 function tokenizeProduction(prodStr) {
   if (!prodStr || !prodStr.trim()) return [];
-  
   const s = prodStr.trim();
-  
-  // Handle epsilon/empty
-  if (s === 'ε' || s === 'epsilon' || s === 'ϵ' || s === 'e' || s === '') {
-    return ['ε'];
-  }
-  
-  // Split by whitespace first
+  if (s === 'ε' || s === 'epsilon' || s === 'ϵ' || s === 'e' || s === '') return ['ε'];
   const parts = s.split(/\s+/).filter(p => p.length > 0);
-  
-  // If no spaces, try to split into individual characters if mixed case
   if (parts.length === 1 && parts[0].length > 1) {
     const token = parts[0];
-    // Check if it looks like a single terminal or non-terminal
-    if (/^[A-Z][A-Z0-9]*$/.test(token)) {
-      return [token]; // Non-terminal like S, E, T, Expr
-    }
-    if (/^[a-z][a-z0-9]*$/.test(token)) {
-      return [token]; // Terminal like id, a, b, num
-    }
-    // Mixed or special - split into chars
+    if (/^[A-Z][A-Z0-9]*$/.test(token)) return [token];
+    if (/^[a-z][a-z0-9]*$/.test(token)) return [token];
     return token.split('');
   }
-  
   return parts;
 }
 
-/**
- * Parse raw grammar text into structured format.
- * Returns { rules, nonTerminals, terminals, startSymbol, errors }
- */
 function parseGrammar(text) {
-  const rules = {};       // { LHS: [[symbol, ...], ...] }
+  const rules = {};
   const errors = [];
-  
-  const lines = text.split('\n')
-    .map(l => l.trim())
-    .filter(l => l.length > 0 && !l.startsWith('//') && !l.startsWith('#'));
+  const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0 && !l.startsWith('//') && !l.startsWith('#'));
   
   for (const line of lines) {
-    // Normalize arrow notation
     let normalized = line.replace(/→|=>|⟶|➝|::=/g, '->');
-    
     const parts = normalized.split('->');
-    if (parts.length !== 2) {
-      errors.push(`Invalid rule format: "${line}" — expected "->" separator`);
-      continue;
-    }
+    if (parts.length !== 2) { errors.push(`Invalid rule format: "${line}"`); continue; }
     
     const lhs = parts[0].trim();
     const rhs = parts[1].trim();
+    if (!lhs) { errors.push(`Empty LHS in: "${line}"`); continue; }
+    if (!rhs) { errors.push(`Empty RHS in: "${line}"`); continue; }
     
-    if (!lhs) {
-      errors.push(`Empty left-hand side in: "${line}"`);
-      continue;
-    }
-    if (!rhs) {
-      errors.push(`Empty right-hand side in: "${line}"`);
-      continue;
-    }
-    
-    // Initialize productions array for this LHS
-    if (!rules[lhs]) {
-      rules[lhs] = [];
-    }
-    
-    // Split by pipe for alternatives
-    const alternatives = rhs.split('|').map(a => a.trim()).filter(a => a.length > 0);
-    
-    for (const alt of alternatives) {
-      const tokens = tokenizeProduction(alt);
-      rules[lhs].push(tokens);
-    }
+    if (!rules[lhs]) rules[lhs] = [];
+    rhs.split('|').map(a => a.trim()).filter(a => a).forEach(alt => {
+      rules[lhs].push(tokenizeProduction(alt));
+    });
   }
   
-  // Extract non-terminals (all LHS symbols)
   const nonTerminals = new Set(Object.keys(rules));
-  
-  // Extract terminals (symbols in RHS that aren't non-terminals and aren't ε)
   const terminals = new Set();
-  for (const prods of Object.values(rules)) {
-    for (const prod of prods) {
-      for (const sym of prod) {
-        if (sym !== 'ε' && !nonTerminals.has(sym)) {
-          terminals.add(sym);
-        }
-      }
-    }
-  }
+  Object.values(rules).forEach(prods => {
+    prods.forEach(prod => prod.forEach(t => { if (t !== 'ε' && !nonTerminals.has(t)) terminals.add(t); }));
+  });
   
-  return {
-    rules,
-    nonTerminals,
-    terminals,
-    startSymbol: Object.keys(rules)[0] || null,
-    errors
-  };
+  return { rules, nonTerminals, terminals, startSymbol: Object.keys(rules)[0] || null, errors };
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   EARLEY PARSER - COMPLETE REBUILD
-   Handles: Left-recursion, Right-recursion, Epsilon, Ambiguity
+   EARLEY PARSER
    ══════════════════════════════════════════════════════════════════ */
 
-/**
- * An item in the Earley chart represents a partially recognized production.
- * { lhs, production, dotPosition, originColumn, id }
- */
 function createItem(lhs, prod, dot, origin, id) {
   return { lhs, prod, dot, origin, id };
 }
 
-/**
- * Main Earley Parser implementation.
- * 
- * @param {Object} grammar - Parsed grammar object
- * @param {string} input - Input string to parse
- * @param {number} maxTrees - Maximum number of parse trees to extract
- * @returns {Array} Array of parse tree objects (or empty if no parse)
- */
 function earleyParse(grammar, input, maxTrees = 10) {
   if (!grammar || !grammar.startSymbol) return [];
-  
   const n = input.length;
   const startSym = grammar.startSymbol;
-  
-  // Chart: array of sets (using arrays, deduplicating by key)
   const chart = [];
-  for (let i = 0; i <= n; i++) {
-    chart[i] = [];
-  }
-  
+  for (let i = 0; i <= n; i++) chart[i] = [];
   let itemIdCounter = 0;
   
-  /**
-   * Add an item to a chart column if not already present.
-   * Uses string key for deduplication.
-   */
   function addItem(colIdx, lhs, prod, dot, origin) {
-    const key = `${lhs}|${prod.join(',')}|${dot}|${origin}`;
-    const existing = chart[colIdx].find(item => 
-      item.lhs === lhs && 
-      arraysEqual(item.prod, prod) && 
-      item.dot === dot && 
-      item.origin === origin
-    );
+    const existing = chart[colIdx].find(item => item.lhs === lhs && arraysEqual(item.prod, prod) && item.dot === dot && item.origin === origin);
     if (!existing) {
-      const item = createItem(lhs, prod, dot, origin, itemIdCounter++);
-      chart[colIdx].push(item);
-      return item;
+      chart[colIdx].push(createItem(lhs, prod, dot, origin, itemIdCounter++));
     }
-    return existing;
   }
   
-  // Helper: check array equality
   function arraysEqual(a, b) {
     if (a.length !== b.length) return false;
-    for (let i = 0; i < a.length; i++) {
-      if (a[i] !== b[i]) return false;
-    }
+    for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
     return true;
   }
   
-  // === INITIALIZATION ===
-  // Seed column 0 with start symbol productions
-  const startProds = grammar.rules[startSym] || [];
-  for (const prod of startProds) {
-    addItem(0, startSym, prod, 0, 0);
-  }
+  // Initialize
+  (grammar.rules[startSym] || []).forEach(prod => addItem(0, startSym, prod, 0, 0));
   
-  // === MAIN LOOP ===
+  // Main loop
   for (let col = 0; col <= n; col++) {
     let processed = 0;
     while (processed < chart[col].length) {
       const item = chart[col][processed];
-      
       const afterDot = item.dot < item.prod.length ? item.prod[item.dot] : null;
       
       if (afterDot === null) {
-        // === COMPLETER ===
-        // Item is complete (dot at end) — advance items that predicted this LHS
-        const completorLHS = item.lhs;
-        const originCol = item.origin;
-        
-        for (const prevItem of chart[originCol]) {
-          const prevAfterDot = prevItem.dot < prevItem.prod.length ? prevItem.prod[prevItem.dot] : null;
-          if (prevAfterDot === completorLHS) {
-            addItem(
-              col,
-              prevItem.lhs,
-              prevItem.prod,
-              prevItem.dot + 1,
-              prevItem.origin
-            );
+        // Completer
+        chart[item.origin].forEach(prevItem => {
+          if (prevItem.dot < prevItem.prod.length && prevItem.prod[prevItem.dot] === item.lhs) {
+            addItem(col, prevItem.lhs, prevItem.prod, prevItem.dot + 1, prevItem.origin);
           }
-        }
-        
+        });
       } else if (afterDot === 'ε') {
-        // === EPSILON HANDLING ===
-        // Epsilon production — complete immediately without advancing column
         addItem(col, item.lhs, item.prod, item.dot + 1, item.origin);
-        
       } else if (grammar.nonTerminals.has(afterDot)) {
-        // === PREDICTOR ===
-        // Non-terminal after dot — add its productions
-        const predictions = grammar.rules[afterDot] || [];
-        for (const predProd of predictions) {
-          addItem(col, afterDot, predProd, 0, col);
-        }
-        
+        // Predictor
+        (grammar.rules[afterDot] || []).forEach(predProd => addItem(col, afterDot, predProd, 0, col));
       } else {
-        // === SCANNER ===
-        // Terminal after dot — try to match input
+        // Scanner
         const termLen = afterDot.length;
-        const endPos = col + termLen;
-        
-        if (endPos <= n && input.substring(col, endPos) === afterDot) {
-          addItem(
-            endPos,
-            item.lhs,
-            item.prod,
-            item.dot + 1,
-            item.origin
-          );
+        if (col + termLen <= n && input.substring(col, col + termLen) === afterDot) {
+          addItem(col + termLen, item.lhs, item.prod, item.dot + 1, item.origin);
         }
       }
-      
       processed++;
     }
   }
   
-  // === FIND COMPLETERS ===
-  // Look for completed start symbol items spanning full input
-  const completers = chart[n].filter(item =>
-    item.lhs === startSym &&
-    item.dot === item.prod.length &&
-    item.origin === 0
-  );
+  // Find completers
+  const completers = chart[n].filter(item => item.lhs === startSym && item.dot === item.prod.length && item.origin === 0);
+  if (completers.length === 0) return [];
   
-  if (completers.length === 0) {
-    return []; // No valid parse
-  }
-  
-  // === TREE EXTRACTION ===
-  // Build parse trees from completed items using recursive forest extraction
+  // Extract trees
   const allTrees = [];
-  
   for (const completer of completers) {
     if (allTrees.length >= maxTrees) break;
-    
     const trees = extractTrees(grammar, chart, completer, n, maxTrees - allTrees.length);
     for (const tree of trees) {
       if (allTrees.length >= maxTrees) break;
-      // Avoid duplicate trees
       const treeStr = JSON.stringify(tree);
-      if (!allTrees.some(t => JSON.stringify(t) === treeStr)) {
-        allTrees.push(tree);
-      }
+      if (!allTrees.some(t => JSON.stringify(t) === treeStr)) allTrees.push(tree);
     }
   }
-  
   return allTrees;
 }
 
-/**
- * Extract all possible parse trees for a completed item.
- * Uses memoization via the chart itself.
- * 
- * @param {Object} grammar
- * @param {Array} chart - Earley chart
- * @param {Object} item - Completed item to extract trees for
- * @param {number} currentCol - Current column position
- * @param {number} maxTrees - Max trees to extract
- * @returns {Array} Array of parse tree nodes
- */
 function extractTrees(grammar, chart, item, currentCol, maxTrees) {
   const results = [];
-  
-  // Base case: if production is empty (epsilon), return epsilon node
-  if (item.prod.length === 0) {
-    return [{ symbol: item.lhs, children: [] }];
-  }
-  
-  // Build list of child symbol lists (each is one way to derive this item)
+  if (item.prod.length === 0) return [{ symbol: item.lhs, children: [] }];
   const childOptions = buildChildOptions(grammar, chart, item, currentCol, maxTrees);
-  
   for (const children of childOptions) {
     if (results.length >= maxTrees) break;
-    results.push({
-      symbol: item.lhs,
-      children: children
-    });
+    results.push({ symbol: item.lhs, children });
   }
-  
   return results;
 }
 
-/**
- * Build all possible child node combinations for an item's production.
- * This handles the recursive splitting of the input span among production symbols.
- */
 function buildChildOptions(grammar, chart, item, currentCol, maxTrees) {
   const prod = item.prod;
   const originCol = item.origin;
-  
-  // For each symbol in the production, find all possible ways it could span
-  // Then combine them into complete child lists
-  
-  // We use a recursive approach: for each position in the production,
-  // find all valid spans and recursively process remaining symbols
-  
   const options = [];
   
-  /**
-   * Recursively build child lists.
-   * @param {number} symIndex - Index into production we're currently processing
-   * @param {number} spanStart - Start column of current span
-   * @param {Array} accumulatedChildren - Children collected so far
-   */
   function recurse(symIndex, spanStart, accumulatedChildren) {
     if (options.length >= maxTrees) return;
-    
-    if (symIndex === prod.length) {
-      // All symbols processed — this is a valid combination
-      options.push([...accumulatedChildren]);
-      return;
-    }
+    if (symIndex === prod.length) { options.push([...accumulatedChildren]); return; }
     
     const sym = prod[symIndex];
-    
     if (sym === 'ε') {
-      // Epsilon — add as leaf without consuming input
       accumulatedChildren.push({ symbol: 'ε', children: [] });
       recurse(symIndex + 1, spanStart, accumulatedChildren);
-      accumulatedChildren.pop(); // backtrack
+      accumulatedChildren.pop();
       return;
     }
     
     if (grammar.nonTerminals.has(sym)) {
-      // Non-terminal — find completed items for this symbol in our span
-      // Search forward from spanStart to find all valid end columns
       for (let endCol = spanStart; endCol <= currentCol; endCol++) {
         if (options.length >= maxTrees) break;
-        
-        // Find items that represent completing `sym` from spanStart to endCol
-        const candidates = chart[endCol].filter(it =>
-          it.lhs === sym &&
-          it.dot === it.prod.length &&
-          it.origin === spanStart
-        );
-        
+        const candidates = chart[endCol].filter(it => it.lhs === sym && it.dot === it.prod.length && it.origin === spanStart);
         for (const cand of candidates) {
           if (options.length >= maxTrees) break;
-          
-          // Recursively extract trees for this candidate
           const subTrees = extractTrees(grammar, chart, cand, endCol, maxTrees - options.length);
-          
           for (const subTree of subTrees) {
             if (options.length >= maxTrees) break;
             accumulatedChildren.push(subTree);
             recurse(symIndex + 1, endCol, accumulatedChildren);
-            accumulatedChildren.pop(); // backtrack
+            accumulatedChildren.pop();
           }
         }
       }
     } else {
-      // Terminal — must match exactly at spanStart
       const termLen = sym.length;
       const endCol = spanStart + termLen;
-      
       if (endCol <= currentCol) {
-        // Verify the terminal matches (it should since scanner validated it)
         accumulatedChildren.push({ symbol: sym, children: [] });
         recurse(symIndex + 1, endCol, accumulatedChildren);
-        accumulatedChildren.pop(); // backtrack
+        accumulatedChildren.pop();
       }
     }
   }
@@ -875,470 +1130,213 @@ function buildChildOptions(grammar, chart, item, currentCol, maxTrees) {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   DERIVATION ENGINE - REBUILD WITH CYCKL ALGORITHM
+   DERIVATION ENGINE
    ══════════════════════════════════════════════════════════════════ */
 
-/**
- * Find a derivation (leftmost or rightmost) for the given input string.
- * Uses iterative deepening with proper state tracking.
- * 
- * @param {Object} grammar - Parsed grammar
- * @param {string} input - Target input string
- * @param {string} mode - 'left' or 'right'
- * @param {number} maxSteps - Maximum derivation steps
- * @returns {Array|null} Array of derivation steps or null if impossible
- */
 function findDerivation(grammar, input, mode, maxSteps = 100) {
   if (!grammar || !grammar.startSymbol) return null;
-  
-  // A state is: array of symbols representing the sentential form
   const initialState = [grammar.startSymbol];
-  
-  // BFS queue: each entry is { form: [...], steps: [...] }
   const queue = [{ form: initialState, steps: [{ form: [...initialState], expanded: null, production: null }] }];
-  
-  // Visited set to avoid cycles
   const visited = new Set();
   visited.add(formToKey(initialState));
-  
   let iterations = 0;
-  const MAX_ITERATIONS = 100000; // Safety limit
   
-  while (queue.length > 0 && iterations++ < MAX_ITERATIONS) {
+  while (queue.length > 0 && iterations++ < 100000) {
     const { form, steps } = queue.shift();
-    
-    // Find next non-terminal to expand based on mode
     const ntIndex = findNonTerminalIndex(form, grammar.nonTerminals, mode);
     
     if (ntIndex === -1) {
-      // No non-terminals left — check if we derived the target
-      const resultString = form.filter(s => s !== 'ε').join('');
-      if (resultString === input) {
-        return steps; // Success!
-      }
-      // Dead end — this doesn't match input
+      if (form.filter(s => s !== 'ε').join('') === input) return steps;
       continue;
     }
     
     const nt = form[ntIndex];
-    const productions = grammar.rules[nt] || [];
-    
-    // Try each production
-    for (const prod of productions) {
+    for (const prod of (grammar.rules[nt] || [])) {
       if (steps.length >= maxSteps) continue;
-      
-      // Apply production: replace NT with RHS
       const replacement = (prod[0] === 'ε') ? [] : [...prod];
-      const newForm = [
-        ...form.slice(0, ntIndex),
-        ...replacement,
-        ...form.slice(ntIndex + 1)
-      ];
-      
+      const newForm = [...form.slice(0, ntIndex), ...replacement, ...form.slice(ntIndex + 1)];
       const key = formToKey(newForm);
       if (visited.has(key)) continue;
       visited.add(key);
-      
-      // Quick validity check: verify all leading terminals still match input prefix
-      if (!isValidPrefix(newForm, input, grammar.nonTerminals)) {
-        continue;
-      }
-      
-      const newSteps = [
-        ...steps,
-        {
-          form: [...newForm],
-          expanded: nt,
-          production: [...prod]
-        }
-      ];
-      
-      queue.push({ form: newForm, steps: newSteps });
+      if (!isValidPrefix(newForm, input, grammar.nonTerminals)) continue;
+      queue.push({ form: newForm, steps: [...steps, { form: [...newForm], expanded: nt, production: [...prod] }] });
     }
   }
-  
-  return null; // No derivation found
+  return null;
 }
 
-/**
- * Convert a form (array of symbols) to a string key for visited set.
- */
-function formToKey(form) {
-  return form.join('|');
-}
+function formToKey(form) { return form.join('|'); }
 
-/**
- * Find index of non-terminal to expand based on derivation mode.
- */
 function findNonTerminalIndex(form, nonTerminals, mode) {
-  if (mode === 'left') {
-    return form.findIndex(s => nonTerminals.has(s));
-  } else {
-    // Rightmost: find last non-terminal
-    for (let i = form.length - 1; i >= 0; i--) {
-      if (nonTerminals.has(form[i])) return i;
-    }
-    return -1;
-  }
+  if (mode === 'left') return form.findIndex(s => nonTerminals.has(s));
+  for (let i = form.length - 1; i >= 0; i--) if (nonTerminals.has(form[i])) return i;
+  return -1;
 }
 
-/**
- * Quick check: do the leading terminals of form match the input prefix?
- * This prunes invalid branches early.
- */
 function isValidPrefix(form, input, nonTerminals) {
   let inputPos = 0;
   for (const sym of form) {
-    if (nonTerminals.has(sym)) {
-      return true; // Hit a non-terminal — can't check further, assume OK
-    }
-    if (sym === 'ε') continue; // Epsilon produces nothing
-    
-    // Terminal — must match input
-    if (inputPos + sym.length > input.length) {
-      return false; // Not enough input left
-    }
-    if (input.substring(inputPos, inputPos + sym.length) !== sym) {
-      return false; // Mismatch
-    }
+    if (nonTerminals.has(sym)) return true;
+    if (sym === 'ε') continue;
+    if (inputPos + sym.length > input.length) return false;
+    if (input.substring(inputPos, inputPos + sym.length) !== sym) return false;
     inputPos += sym.length;
   }
   return true;
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   RANDOM STRING GENERATOR - REBUILD
+   RANDOM STRING GENERATOR
    ══════════════════════════════════════════════════════════════════ */
 
-/**
- * Generate a random string that is in the language of the grammar.
- * Uses random derivation with depth limiting.
- * 
- * @param {Object} grammar - Parsed grammar
- * @param {number} maxDepth - Maximum recursion depth
- * @returns {string|null} Generated string or null if failed
- */
 function generateRandomString(grammar, maxDepth = 10) {
   if (!grammar || !grammar.startSymbol) return null;
-  
-  // Try multiple times with increasing depth
   for (let depth = 2; depth <= maxDepth; depth++) {
     const result = deriveRandom(grammar.startSymbol, depth, grammar, new Map());
-    if (result !== null && result.length > 0 && result.length <= 20) {
-      return result;
-    }
+    if (result !== null && result.length > 0 && result.length <= 20) return result;
   }
-  
   return null;
 }
 
-/**
- * Recursive random derivation helper.
- * Memoized to avoid redundant work.
- */
 function deriveRandom(symbol, depthLeft, grammar, cache) {
-  // Cache key includes depth to allow different expansions at different depths
   const cacheKey = `${symbol}|${depthLeft}`;
   if (cache.has(cacheKey)) return cache.get(cacheKey);
-  
-  // If not a non-terminal, return as-is (terminal)
-  if (!grammar.nonTerminals.has(symbol)) {
-    return symbol === 'ε' ? '' : symbol;
-  }
-  
-  // Depth exhausted — try to find a terminal-only production
+  if (!grammar.nonTerminals.has(symbol)) return symbol === 'ε' ? '' : symbol;
   if (depthLeft <= 0) {
     const prods = grammar.rules[symbol] || [];
     for (const prod of prods) {
-      const allTerminal = prod.every(s => s === 'ε' || !grammar.nonTerminals.has(s));
-      if (allTerminal && prod.some(s => s !== 'ε')) {
-        const result = prod.filter(s => s !== 'ε').join('');
-        cache.set(cacheKey, result);
-        return result;
+      if (prod.every(s => s === 'ε' || !grammar.nonTerminals.has(s)) && prod.some(s => s !== 'ε')) {
+        const r = prod.filter(s => s !== 'ε').join('');
+        cache.set(cacheKey, r); return r;
       }
     }
-    cache.set(cacheKey, null);
-    return null;
+    cache.set(cacheKey, null); return null;
   }
-  
-  // Get productions and shuffle for randomness
   const prods = (grammar.rules[symbol] || []).slice();
   shuffleArray(prods);
-  
   for (const prod of prods) {
-    const parts = [];
-    let success = true;
-    
+    const parts = []; let success = true;
     for (const sym of prod) {
-      if (sym === 'ε') continue; // Skip epsilon
-      
+      if (sym === 'ε') continue;
       const subResult = deriveRandom(sym, depthLeft - 1, grammar, cache);
-      if (subResult === null) {
-        success = false;
-        break;
-      }
+      if (subResult === null) { success = false; break; }
       parts.push(subResult);
     }
-    
-    if (success && parts.length > 0) {
-      const result = parts.join('');
-      cache.set(cacheKey, result);
-      return result;
-    }
-    
-    // Also accept empty result if production was all epsilon
-    if (success && parts.length === 0 && prod.some(s => s === 'ε')) {
-      cache.set(cacheKey, '');
-      return '';
-    }
+    if (success && parts.length > 0) { cache.set(cacheKey, parts.join('')); return parts.join(''); }
+    if (success && parts.length === 0 && prod.some(s => s === 'ε')) { cache.set(cacheKey, ''); return ''; }
   }
-  
-  cache.set(cacheKey, null);
-  return null;
+  cache.set(cacheKey, null); return null;
 }
 
-/**
- * Fisher-Yates shuffle (in-place).
- */
 function shuffleArray(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
+  for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; }
   return arr;
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   PARSE TREE RENDERING - SVG BASED
+   PARSE TREE RENDERING
    ══════════════════════════════════════════════════════════════════ */
 
-// Layout constants
 const NODE_WIDTH = 54;
 const NODE_HEIGHT = 34;
 const H_GAP = 14;
 const V_GAP = 50;
 const NODE_RADIUS = 10;
 
-/**
- * Calculate the depth of a parse tree.
- */
 function getTreeDepth(node) {
   if (!node) return 0;
   if (!node.children || node.children.length === 0) return 1;
   return 1 + Math.max(...node.children.map(getTreeDepth));
 }
 
-/**
- * Count total nodes in a parse tree.
- */
 function countNodes(node) {
   if (!node) return 0;
   return 1 + (node.children || []).reduce((sum, c) => sum + countNodes(c), 0);
 }
 
-/**
- * Calculate layout positions for all nodes in the tree.
- * Uses a simple recursive algorithm that centers children under parents.
- */
 function calculateLayout(root) {
   if (!root) return { width: 0, height: 0 };
-  
-  // First pass: calculate subtree widths
   function calcWidth(node) {
-    if (!node.children || node.children.length === 0) {
-      node._w = NODE_WIDTH;
-      return NODE_WIDTH;
-    }
-    
-    // Special case: single epsilon child
-    if (node.children.length === 1 && node.children[0].symbol === 'ε') {
-      node._w = NODE_WIDTH;
-      return NODE_WIDTH;
-    }
-    
+    if (!node.children || node.children.length === 0) { node._w = NODE_WIDTH; return NODE_WIDTH; }
+    if (node.children.length === 1 && node.children[0].symbol === 'ε') { node._w = NODE_WIDTH; return NODE_WIDTH; }
     let totalWidth = 0;
-    for (const child of node.children) {
-      totalWidth += calcWidth(child);
-    }
+    node.children.forEach(c => totalWidth += calcWidth(c));
     totalWidth += (node.children.length - 1) * H_GAP;
-    
     node._w = Math.max(NODE_WIDTH, totalWidth);
     return node._w;
   }
-  
-  // Second pass: assign positions
   function assignPositions(node, centerX, y) {
-    node._x = centerX;
-    node._y = y;
-    
+    node._x = centerX; node._y = y;
     if (!node.children || node.children.length === 0) return;
-    
-    // Special case: single epsilon child
     if (node.children.length === 1 && node.children[0].symbol === 'ε') return;
-    
-    const totalChildWidth = node.children.reduce((sum, c) => sum + c._w, 0) +
-                           (node.children.length - 1) * H_GAP;
+    const totalChildWidth = node.children.reduce((sum, c) => sum + c._w, 0) + (node.children.length - 1) * H_GAP;
     let currentX = centerX - totalChildWidth / 2;
-    
-    for (const child of node.children) {
-      assignPositions(child, currentX + child._w / 2, y + NODE_HEIGHT + V_GAP);
-      currentX += child._w + H_GAP;
-    }
+    node.children.forEach(c => { assignPositions(c, currentX + c._w / 2, y + NODE_HEIGHT + V_GAP); currentX += c._w + H_GAP; });
   }
-  
   const padding = 32;
   calcWidth(root);
   assignPositions(root, root._w / 2 + padding, padding);
-  
-  return {
-    width: root._w + padding * 2,
-    height: getTreeDepth(root) * (NODE_HEIGHT + V_GAP) + padding
-  };
+  return { width: root._w + padding * 2, height: getTreeDepth(root) * (NODE_HEIGHT + V_GAP) + padding };
 }
 
-/**
- * Render a parse tree into a container element using SVG.
- * 
- * @param {HTMLElement} container - Container element
- * @param {Object} tree - Parse tree root node
- * @param {boolean} animate - Whether to animate the drawing
- */
 function renderParseTree(container, tree, animate = true) {
-  if (!tree) {
-    container.innerHTML = '<p style="color:var(--text-muted);font-size:13.5px">No tree to display.</p>';
-    return;
-  }
-  
+  if (!tree) { container.innerHTML = '<p style="color:var(--text-muted);font-size:12.5px">No tree to display.</p>'; return; }
   const { width, height } = calculateLayout(tree);
   container.innerHTML = '';
-  
-  // Create SVG namespace
   const NS = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(NS, 'svg');
   svg.setAttribute('width', width);
   svg.setAttribute('height', height);
   svg.style.overflow = 'visible';
   svg.style.display = 'block';
+  svg.setAttribute('role', 'img');
+  svg.setAttribute('aria-label', 'Parse tree visualization');
   container.appendChild(svg);
-  
-  // Groups for layering (edges below nodes)
   const edgesGroup = document.createElementNS(NS, 'g');
   const nodesGroup = document.createElementNS(NS, 'g');
   svg.appendChild(edgesGroup);
   svg.appendChild(nodesGroup);
   
-  let delay = 0;
-  
-  /**
-   * Recursively draw nodes and edges.
-   */
-  function drawNode(node, depth) {
+  function drawNode(node, delay) {
     const isLeaf = !node.children || node.children.length === 0;
     const isEpsilon = node.symbol === 'ε';
-    
-    // Draw edges to children first
-    if (node.children && node.children.length > 0 && 
-        !(node.children.length === 1 && node.children[0].symbol === 'ε')) {
-      for (const child of node.children) {
+    if (node.children && node.children.length > 0 && !(node.children.length === 1 && node.children[0].symbol === 'ε')) {
+      node.children.forEach(child => {
         const line = document.createElementNS(NS, 'line');
-        line.setAttribute('x1', node._x);
-        line.setAttribute('y1', node._y + NODE_HEIGHT);
-        line.setAttribute('x2', child._x);
-        line.setAttribute('y2', child._y);
+        line.setAttribute('x1', node._x); line.setAttribute('y1', node._y + NODE_HEIGHT);
+        line.setAttribute('x2', child._x); line.setAttribute('y2', child._y);
         line.setAttribute('stroke', 'rgba(0,200,240,0.22)');
         line.setAttribute('stroke-width', '1.5');
         line.setAttribute('stroke-linecap', 'round');
-        
-        if (animate) {
-          line.style.opacity = '0';
-          line.style.transition = `opacity 0.35s ease ${delay + 0.1}s`;
-          requestAnimationFrame(() => { line.style.opacity = '1'; });
-        }
-        
+        if (animate) { line.style.opacity = '0'; line.style.transition = `opacity 0.35s ease ${delay + 0.1}s`; requestAnimationFrame(() => { line.style.opacity = '1'; }); }
         edgesGroup.appendChild(line);
-      }
-    }
-    
-    // Draw node rectangle
-    const rect = document.createElementNS(NS, 'rect');
-    rect.setAttribute('x', node._x - NODE_WIDTH / 2);
-    rect.setAttribute('y', node._y);
-    rect.setAttribute('width', NODE_WIDTH);
-    rect.setAttribute('height', NODE_HEIGHT);
-    rect.setAttribute('rx', NODE_RADIUS);
-    
-    // Color based on node type
-    if (isEpsilon) {
-      rect.setAttribute('fill', 'rgba(255,200,48,0.08)');
-      rect.setAttribute('stroke', 'rgba(255,200,48,0.35)');
-    } else if (isLeaf) {
-      rect.setAttribute('fill', 'rgba(0,232,140,0.08)');
-      rect.setAttribute('stroke', 'rgba(0,232,140,0.35)');
-    } else {
-      rect.setAttribute('fill', 'rgba(0,200,240,0.06)');
-      rect.setAttribute('stroke', 'rgba(0,200,240,0.3)');
-    }
-    rect.setAttribute('stroke-width', '1.5');
-    
-    if (animate) {
-      rect.style.opacity = '0';
-      rect.style.transformOrigin = `${node._x}px ${node._y + NODE_HEIGHT / 2}px`;
-      rect.style.transition = `opacity 0.4s ease ${delay}s, transform 0.4s cubic-bezier(0.4,0,0.2,1) ${delay}s`;
-      rect.style.transform = 'scale(0.5)';
-      requestAnimationFrame(() => { 
-        rect.style.opacity = '1'; 
-        rect.style.transform = 'scale(1)'; 
       });
     }
-    
+    const rect = document.createElementNS(NS, 'rect');
+    rect.setAttribute('x', node._x - NODE_WIDTH / 2); rect.setAttribute('y', node._y);
+    rect.setAttribute('width', NODE_WIDTH); rect.setAttribute('height', NODE_HEIGHT); rect.setAttribute('rx', NODE_RADIUS);
+    if (isEpsilon) { rect.setAttribute('fill', 'rgba(255,200,48,0.08)'); rect.setAttribute('stroke', 'rgba(255,200,48,0.35)'); }
+    else if (isLeaf) { rect.setAttribute('fill', 'rgba(0,232,140,0.08)'); rect.setAttribute('stroke', 'rgba(0,232,140,0.35)'); }
+    else { rect.setAttribute('fill', 'rgba(0,200,240,0.06)'); rect.setAttribute('stroke', 'rgba(0,200,240,0.3)'); }
+    rect.setAttribute('stroke-width', '1.5');
+    if (animate) { rect.style.opacity = '0'; rect.style.transformOrigin = `${node._x}px ${node._y + NODE_HEIGHT / 2}px`; rect.style.transition = `opacity 0.4s ease ${delay}s, transform 0.4s cubic-bezier(0.4,0,0.2,1) ${delay}s`; rect.style.transform = 'scale(0.5)'; requestAnimationFrame(() => { rect.style.opacity = '1'; rect.style.transform = 'scale(1)'; }); }
     nodesGroup.appendChild(rect);
-    
-    // Draw label text
     const text = document.createElementNS(NS, 'text');
-    text.setAttribute('x', node._x);
-    text.setAttribute('y', node._y + NODE_HEIGHT / 2 + 5);
+    text.setAttribute('x', node._x); text.setAttribute('y', node._y + NODE_HEIGHT / 2 + 5);
     text.setAttribute('text-anchor', 'middle');
-    
-    if (isEpsilon) {
-      text.setAttribute('fill', '#ffc830');
-    } else if (isLeaf) {
-      text.setAttribute('fill', '#00e88c');
-    } else {
-      text.setAttribute('fill', '#00c8f0');
-    }
-    
+    text.setAttribute('fill', isEpsilon ? '#ffc830' : isLeaf ? '#00e88c' : '#00c8f0');
     text.setAttribute('font-family', "'JetBrains Mono', monospace");
     text.setAttribute('font-size', node.symbol.length > 3 ? '11' : '13');
     text.setAttribute('font-weight', '600');
     text.textContent = node.symbol;
-    
-    if (animate) {
-      text.style.opacity = '0';
-      text.style.transition = `opacity 0.3s ease ${delay + 0.07}s`;
-      requestAnimationFrame(() => { text.style.opacity = '1'; });
-    }
-    
+    if (animate) { text.style.opacity = '0'; text.style.transition = `opacity 0.3s ease ${delay + 0.07}s`; requestAnimationFrame(() => { text.style.opacity = '1'; }); }
     nodesGroup.appendChild(text);
-    
-    // Draw children with staggered delay
-    if (node.children) {
-      let childDelay = delay + 0.14;
-      for (const child of node.children) {
-        drawNode(child, childDelay);
-        childDelay += 0.09;
-      }
-    }
+    if (node.children) { let cd = delay + 0.14; node.children.forEach(c => { drawNode(c, cd); cd += 0.09; }); }
   }
-  
   drawNode(tree, 0);
-  
-  // Center if smaller than container
-  const containerWidth = container.clientWidth;
-  if (width < containerWidth) {
-    svg.style.marginLeft = `${(containerWidth - width) / 2}px`;
-  } else {
-    container.style.overflowX = 'auto';
-  }
+  const cw = container.clientWidth;
+  if (width < cw) svg.style.marginLeft = `${(cw - width) / 2}px`;
+  else container.style.overflowX = 'auto';
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -1357,11 +1355,7 @@ function loadExample(type) {
     expr: 'E -> E + T | T\nT -> T * F | F\nF -> ( E ) | id',
     palindrome: 'S -> a S a | b S b | a | b | ε'
   };
-  
-  if (examples[type]) {
-    grammarInputEl.value = examples[type];
-    validateGrammar();
-  }
+  if (examples[type]) { grammarInputEl.value = examples[type]; validateGrammar(); }
 }
 
 function validateGrammar() {
@@ -1369,107 +1363,40 @@ function validateGrammar() {
   const statusEl = document.getElementById('grammarStatus');
   const formattedEl = document.getElementById('formattedGrammar');
   const infoEl = document.getElementById('grammarInfo');
-  
-  // Clear previous state
-  formattedEl.innerHTML = '';
-  infoEl.style.display = 'none';
-  
-  if (!text) {
-    statusEl.innerHTML = '';
-    formattedEl.innerHTML = '<p style="color:var(--text-muted);font-size:13.5px">Enter grammar rules above.</p>';
-    currentGrammar = null;
-    return;
-  }
-  
-  // Parse the grammar
+  formattedEl.innerHTML = ''; infoEl.style.display = 'none';
+  if (!text) { statusEl.innerHTML = ''; formattedEl.innerHTML = '<p style="color:var(--text-muted);font-size:12.5px">Enter grammar rules above.</p>'; currentGrammar = null; return; }
   const grammar = parseGrammar(text);
-  
-  // Show errors if any
   if (grammar.errors.length > 0) {
     statusEl.innerHTML = '<span style="color:var(--accent4)"><i class="fa-solid fa-xmark"></i> Errors</span>';
-    formattedEl.innerHTML = grammar.errors.map(err => 
-      `<div class="rule-error">${err}</div>`
-    ).join('');
-    currentGrammar = null;
-    return;
+    formattedEl.innerHTML = grammar.errors.map(err => `<div class="rule-error">${err}</div>`).join('');
+    currentGrammar = null; return;
   }
-  
-  // Check for no rules
   if (Object.keys(grammar.rules).length === 0) {
     statusEl.innerHTML = '<span style="color:var(--accent4)"><i class="fa-solid fa-xmark"></i> No rules</span>';
-    formattedEl.innerHTML = '<p style="color:var(--text-muted);font-size:13.5px">No valid rules found.</p>';
-    currentGrammar = null;
-    return;
+    formattedEl.innerHTML = '<p style="color:var(--text-muted);font-size:12.5px">No valid rules found.</p>';
+    currentGrammar = null; return;
   }
-  
-  // Success!
   currentGrammar = grammar;
   statusEl.innerHTML = '<span style="color:var(--accent2)"><i class="fa-solid fa-check"></i> Valid</span>';
-  
-  // Format and display the grammar
-  let html = '';
-  let ruleIndex = 0;
-  
+  let html = '', ruleIndex = 0;
   for (const [lhs, productions] of Object.entries(grammar.rules)) {
     for (let i = 0; i < productions.length; i++) {
       const prod = productions[i];
-      
-      // Format each symbol in the production
-      const formattedSymbols = prod.map(sym => {
-        if (sym === 'ε') return '<span class="eps">ε</span>';
-        if (grammar.nonTerminals.has(sym)) return `<span class="nt">${sym}</span>`;
-        return `<span class="tm">${sym}</span>`;
-      }).join(' ');
-      
+      const formattedSymbols = prod.map(sym => sym === 'ε' ? '<span class="eps">ε</span>' : grammar.nonTerminals.has(sym) ? `<span class="nt">${sym}</span>` : `<span class="tm">${sym}</span>`).join(' ');
       const animDelay = (ruleIndex * 0.05).toFixed(2);
-      
-      if (i === 0) {
-        // First production for this LHS — show LHS and arrow
-        html += `
-          <div class="rule-row" style="animation-delay:${animDelay}s">
-            <span class="rule-lhs">${lhs}</span>
-            <span class="rule-arrow">→</span>
-            <span class="rule-rhs">${formattedSymbols}</span>
-            ${productions.length > 1 ? '<span class="rule-alt">|</span>' : ''}
-          </div>
-        `;
-      } else {
-        // Alternative production — just show RHS
-        html += `
-          <div class="rule-row" style="animation-delay:${animDelay}s;padding-left:56px">
-            <span class="rule-rhs">${formattedSymbols}</span>
-            ${i < productions.length - 1 ? '<span class="rule-alt">|</span>' : ''}
-          </div>
-        `;
-      }
-      
+      html += i === 0 ? `<div class="rule-row" style="animation-delay:${animDelay}s"><span class="rule-lhs">${lhs}</span><span class="rule-arrow">→</span><span class="rule-rhs">${formattedSymbols}</span>${productions.length > 1 ? '<span class="rule-alt">|</span>' : ''}</div>` : `<div class="rule-row" style="animation-delay:${animDelay}s;padding-left:56px"><span class="rule-rhs">${formattedSymbols}</span>${i < productions.length - 1 ? '<span class="rule-alt">|</span>' : ''}</div>`;
       ruleIndex++;
     }
   }
-  
   formattedEl.innerHTML = html;
-  
-  // Show grammar statistics
   const totalProductions = Object.values(grammar.rules).reduce((sum, prods) => sum + prods.length, 0);
   infoEl.style.display = 'flex';
-  infoEl.innerHTML = `
-    <span class="badge badge-cyan"><i class="fa-solid fa-circle-nodes mr-1"></i>${grammar.nonTerminals.size} NT</span>
-    <span class="badge badge-teal"><i class="fa-solid fa-font mr-1"></i>${grammar.terminals.size} T</span>
-    <span class="badge badge-gold"><i class="fa-solid fa-list mr-1"></i>${totalProductions} Prod</span>
-    <span class="badge badge-cyan"><i class="fa-solid fa-play mr-1"></i>Start: ${grammar.startSymbol}</span>
-  `;
-  
-  showToast('Grammar validated successfully!', 'success');
+  infoEl.innerHTML = `<span class="badge badge-cyan"><i class="fa-solid fa-circle-nodes mr-1"></i>${grammar.nonTerminals.size} NT</span><span class="badge badge-teal"><i class="fa-solid fa-font mr-1"></i>${grammar.terminals.size} T</span><span class="badge badge-gold"><i class="fa-solid fa-list mr-1"></i>${totalProductions} Prod</span><span class="badge badge-cyan"><i class="fa-solid fa-play mr-1"></i>Start: ${grammar.startSymbol}</span>`;
+  showToast('Grammar validated!', 'success');
 }
 
-// Auto-validate on input (debounced)
 let grammarDebounceTimer = null;
-grammarInputEl.addEventListener('input', () => {
-  clearTimeout(grammarDebounceTimer);
-  grammarDebounceTimer = setTimeout(validateGrammar, 500);
-});
-
-// Initial validation on load
+grammarInputEl.addEventListener('input', () => { clearTimeout(grammarDebounceTimer); grammarDebounceTimer = setTimeout(validateGrammar, 500); });
 validateGrammar();
 
 /* ────────────────────────────────────────────────
@@ -1477,114 +1404,55 @@ validateGrammar();
    ──────────────────────────────────────────────── */
 
 function runDerivation(mode) {
-  if (!currentGrammar) {
-    showToast('Please define and validate a grammar first.', 'error');
-    return;
-  }
-  
+  if (!currentGrammar) { showToast('Please define a grammar first.', 'error'); return; }
   const input = document.getElementById('derivInput').value.trim();
-  
-  // Update button states
   const leftBtn = document.getElementById('derivLeftBtn');
   const rightBtn = document.getElementById('derivRightBtn');
   leftBtn.style.background = mode === 'left' ? 'rgba(0,200,240,.12)' : '';
   rightBtn.style.background = mode === 'right' ? 'rgba(0,232,140,.12)' : '';
-  
-  // Hide error and controls initially
   document.getElementById('derivError').style.display = 'none';
   document.getElementById('derivControls').style.display = 'none';
-  
-  // Run the derivation engine
   const steps = findDerivation(currentGrammar, input, mode, 100);
-  
-  if (!steps === undefined || steps === null) {
-    // No derivation found
-    const errorMsg = input === '' 
-      ? `No ${mode}most derivation found for empty string.`
-      : `No ${mode}most derivation found for "<strong>${escapeHtml(input)}</strong>".<br><br>This string may not be in the grammar's language.`;
-    
+  if (!steps) {
+    const errorMsg = input === '' ? `No ${mode}most derivation for empty string.` : `No ${mode}most derivation for "<strong>${escapeHtml(input)}</strong>".<br><br>This string may not be in the grammar's language.`;
     document.getElementById('derivError').innerHTML = `<i class="fa-solid fa-xmark"></i> ${errorMsg}`;
     document.getElementById('derivError').style.display = 'block';
-    document.getElementById('derivSteps').innerHTML = '';
-    return;
+    document.getElementById('derivSteps').innerHTML = ''; return;
   }
-  
-  // Store and display steps
-  derivSteps = steps;
-  derivIndex = 0;
-  
+  derivSteps = steps; derivIndex = 0;
   document.getElementById('derivStepTotal').textContent = steps.length - 1;
   document.getElementById('derivControls').style.display = 'flex';
-  
   renderCurrentDerivationStep();
-  
   showToast(`${mode === 'left' ? 'Leftmost' : 'Rightmost'} derivation found (${steps.length - 1} steps)`, 'success');
 }
 
 function renderCurrentDerivationStep() {
   const container = document.getElementById('derivSteps');
   document.getElementById('derivStepNum').textContent = derivIndex;
-  
   let html = '';
-  
   for (let i = 0; i <= derivIndex; i++) {
-    const step = derivSteps[i];
-    const isActive = (i === derivIndex);
-    
-    // Format the sentential form
-    const formattedForm = step.form.map(sym => {
-      if (sym === 'ε') return '<span class="eps">ε</span>';
-      if (currentGrammar && currentGrammar.nonTerminals.has(sym)) {
-        return `<span class="nt">${sym}</span>`;
-      }
-      return `<span class="tm">${sym}</span>`;
-    }).join(' ') || '<span class="eps">ε</span>';
-    
-    // Step info
+    const step = derivSteps[i]; const isActive = (i === derivIndex);
+    const formattedForm = step.form.map(sym => sym === 'ε' ? '<span class="eps">ε</span>' : currentGrammar && currentGrammar.nonTerminals.has(sym) ? `<span class="nt">${sym}</span>` : `<span class="tm">${sym}</span>`).join(' ') || '<span class="eps">ε</span>';
     let infoText = 'Start';
-    if (step.expanded) {
-      const prodStr = step.production.map(s => s === 'ε' ? 'ε' : s).join(' ');
-      infoText = `Expand <span style="color:var(--accent)">${step.expanded}</span> → ${prodStr}`;
-    }
-    
+    if (step.expanded) { const prodStr = step.production.map(s => s === 'ε' ? 'ε' : s).join(' '); infoText = `Expand <span style="color:var(--accent)">${step.expanded}</span> → ${prodStr}`; }
     const animDelay = (i * 0.03).toFixed(2);
-    
-    html += `
-      <div class="deriv-step ${isActive ? 'active-step' : ''}" style="animation-delay:${animDelay}s">
-        <div class="step-num">${i}</div>
-        <div class="step-form">${formattedForm}</div>
-        <div class="step-info">${infoText}</div>
-      </div>
-    `;
+    html += `<div class="deriv-step ${isActive ? 'active-step' : ''}" style="animation-delay:${animDelay}s"><div class="step-num">${i}</div><div class="step-form">${formattedForm}</div><div class="step-info">${infoText}</div></div>`;
   }
-  
   container.innerHTML = html;
   container.scrollTop = container.scrollHeight;
 }
 
 function derivStep(delta) {
-  if (delta === 999) {
-    derivIndex = derivSteps.length - 1;
-  } else {
-    derivIndex = Math.max(0, Math.min(derivSteps.length - 1, derivIndex + delta));
-  }
+  if (delta === 999) derivIndex = derivSteps.length - 1;
+  else derivIndex = Math.max(0, Math.min(derivSteps.length - 1, derivIndex + delta));
   renderCurrentDerivationStep();
 }
 
 function randomDerivInput() {
-  if (!currentGrammar) {
-    showToast('Please define a grammar first.', 'error');
-    return;
-  }
-  
+  if (!currentGrammar) { showToast('Please define a grammar first.', 'error'); return; }
   const randomString = generateRandomString(currentGrammar, 10);
-  
-  if (randomString !== null) {
-    document.getElementById('derivInput').value = randomString;
-    showToast(`Generated: ${randomString}`, 'info');
-  } else {
-    showToast('Could not generate a valid string. Try adding ε productions.', 'error');
-  }
+  if (randomString !== null) { document.getElementById('derivInput').value = randomString; showToast(`Generated: ${randomString}`, 'info'); }
+  else { showToast('Could not generate a string. Try adding ε productions.', 'error'); }
 }
 
 /* ────────────────────────────────────────────────
@@ -1592,72 +1460,29 @@ function randomDerivInput() {
    ──────────────────────────────────────────────── */
 
 function generateParseTree() {
-  if (!currentGrammar) {
-    showToast('Please define and validate a grammar first.', 'error');
-    return;
-  }
-  
+  if (!currentGrammar) { showToast('Please define a grammar first.', 'error'); return; }
   const input = document.getElementById('treeInput').value.trim();
   const errorEl = document.getElementById('treeError');
   const renderContainer = document.getElementById('tree-render');
   const statsEl = document.getElementById('treeStats');
-  
-  // Reset state
-  errorEl.style.display = 'none';
-  statsEl.style.display = 'none';
-  
-  // Run Earley parser
-  console.log('Parsing:', input);
-  console.log('Grammar:', currentGrammar);
-  
+  errorEl.style.display = 'none'; statsEl.style.display = 'none';
   const trees = earleyParse(currentGrammar, input, 1);
-  
-  console.log('Parse result:', trees.length, 'trees');
-  
   if (trees.length === 0) {
-    // Parse failed
-    const displayInput = input || '(empty)';
-    errorEl.innerHTML = `
-      <i class="fa-solid fa-xmark"></i> 
-      Cannot parse "<strong>${escapeHtml(displayInput)}</strong>".<br><br>
-      Make sure:<br>
-      • The grammar can derive this string<br>
-      • All terminals in the string exist in the grammar<br>
-      • The string follows the grammar's structure
-    `;
+    errorEl.innerHTML = `<i class="fa-solid fa-xmark"></i> Cannot parse "<strong>${escapeHtml(input || '(empty)')}</strong>".<br><br>Make sure:<br>• The grammar can derive this string<br>• All terminals exist in the grammar`;
     errorEl.style.display = 'block';
-    renderContainer.innerHTML = `<p style="color:var(--text-muted);font-size:13.5px">No valid parse tree found for this input.</p>`;
-    return;
+    renderContainer.innerHTML = `<p style="color:var(--text-muted);font-size:12.5px">No valid parse tree found.</p>`; return;
   }
-  
-  // Parse succeeded — render the tree
   renderParseTree(renderContainer, trees[0], true);
-  
-  // Show statistics
   statsEl.style.display = 'flex';
-  statsEl.innerHTML = `
-    <span class="badge badge-cyan"><i class="fa-solid fa-layer-group mr-1"></i>Depth: ${getTreeDepth(trees[0])}</span>
-    <span class="badge badge-teal"><i class="fa-solid fa-circle-nodes mr-1"></i>Nodes: ${countNodes(trees[0])}</span>
-    <span class="badge badge-gold"><i class="fa-solid fa-font mr-1"></i>"${escapeHtml(input)}"</span>
-  `;
-  
-  showToast('Parse tree generated successfully!', 'success');
+  statsEl.innerHTML = `<span class="badge badge-cyan"><i class="fa-solid fa-layer-group mr-1"></i>Depth: ${getTreeDepth(trees[0])}</span><span class="badge badge-teal"><i class="fa-solid fa-circle-nodes mr-1"></i>Nodes: ${countNodes(trees[0])}</span><span class="badge badge-gold"><i class="fa-solid fa-font mr-1"></i>"${escapeHtml(input)}"</span>`;
+  showToast('Parse tree generated!', 'success');
 }
 
 function randomTreeInput() {
-  if (!currentGrammar) {
-    showToast('Please define a grammar first.', 'error');
-    return;
-  }
-  
+  if (!currentGrammar) { showToast('Please define a grammar first.', 'error'); return; }
   const randomString = generateRandomString(currentGrammar, 10);
-  
-  if (randomString !== null) {
-    document.getElementById('treeInput').value = randomString;
-    generateParseTree();
-  } else {
-    showToast('Could not generate a valid string.', 'error');
-  }
+  if (randomString !== null) { document.getElementById('treeInput').value = randomString; generateParseTree(); }
+  else { showToast('Could not generate a string.', 'error'); }
 }
 
 /* ────────────────────────────────────────────────
@@ -1666,137 +1491,56 @@ function randomTreeInput() {
 
 function loadAmbigExample(type) {
   const inputEl = document.getElementById('ambigInput');
-  
-  if (type === 'expr') {
-    // Classic ambiguous expression grammar
-    grammarInputEl.value = 'E -> E + E | E * E | ( E ) | id';
-    inputEl.value = 'id+id*id';
-  } else if (type === 'dangling') {
-    // Dangling else problem
-    grammarInputEl.value = 'S -> if E then S else S | if E then S | a\nE -> b';
-    inputEl.value = 'ifbthenifbthenaelsea';
-  }
-  
+  if (type === 'expr') { grammarInputEl.value = 'E -> E + E | E * E | ( E ) | id'; inputEl.value = 'id+id*id'; }
+  else if (type === 'dangling') { grammarInputEl.value = 'S -> if E then S else S | if E then S | a\nE -> b'; inputEl.value = 'ifbthenifbthenaelsea'; }
   validateGrammar();
 }
 
 function checkAmbiguity() {
-  if (!currentGrammar) {
-    showToast('Please define and validate a grammar first.', 'error');
-    return;
-  }
-  
+  if (!currentGrammar) { showToast('Please define a grammar first.', 'error'); return; }
   const input = document.getElementById('ambigInput').value.trim();
   const errorEl = document.getElementById('ambigError');
   const resultEl = document.getElementById('ambigResult');
   const treesContainer = document.getElementById('ambigTrees');
-  
-  // Reset
-  errorEl.style.display = 'none';
-  resultEl.style.display = 'none';
-  
-  // Parse with higher tree limit to detect ambiguity
+  errorEl.style.display = 'none'; resultEl.style.display = 'none';
   const trees = earleyParse(currentGrammar, input, 10);
-  
-  console.log('Ambiguity check for:', input, '- Found', trees.length, 'trees');
-  
   if (trees.length === 0) {
-    // Can't parse at all
     errorEl.innerHTML = `<i class="fa-solid fa-xmark"></i> Cannot parse "<strong>${escapeHtml(input || '(empty)')}</strong>".`;
     errorEl.style.display = 'block';
-    treesContainer.innerHTML = `
-      <div class="glass p-6 flex items-center justify-center" style="min-height:300px">
-        <p style="color:var(--text-muted);font-size:13.5px">No parse tree found.</p>
-      </div>
-    `;
-    return;
+    treesContainer.innerHTML = `<div class="glass p-4 md:p-6 flex items-center justify-center ambig-tree-card" style="min-height:220px;min-height:260px"><p style="color:var(--text-muted);font-size:12.5px;text-align:center">No parse tree found.</p></div>`; return;
   }
-  
   if (trees.length === 1) {
-    // Unambiguous for this string
     resultEl.style.display = 'block';
-    resultEl.innerHTML = `
-      <div class="flex items-center gap-3 mb-2">
-        <i class="fa-solid fa-circle-check" style="color:var(--accent2);font-size:18px"></i>
-        <span class="font-semibold" style="color:var(--accent2)">Unambiguous</span>
-      </div>
-      <p class="text-[13px]" style="color:var(--text-secondary);line-height:1.75">
-        "<strong>${escapeHtml(input)}</strong>" has exactly <strong>one</strong> parse tree.<br>
-        No ambiguity detected for this test case.
-      </p>
-    `;
-    
-    // Show the single tree
+    resultEl.innerHTML = `<div class="flex items-center gap-3 mb-2"><i class="fa-solid fa-circle-check" style="color:var(--accent2);font-size:18px"></i><span class="font-semibold" style="color:var(--accent2)">Unambiguous</span></div><p class="text-[12px] md:text-[13px]" style="color:var(--text-secondary);line-height:1.7">"<strong>${escapeHtml(input)}</strong>" has exactly <strong>one</strong> parse tree.</p>`;
     treesContainer.innerHTML = '<div class="glass p-4" id="singleTreeContainer"></div>';
-    setTimeout(() => {
-      renderParseTree(document.getElementById('singleTreeContainer'), trees[0], true);
-    }, 100);
-    
+    setTimeout(() => renderParseTree(document.getElementById('singleTreeContainer'), trees[0], true), 100);
     showToast('Unambiguous for this string', 'info');
-    
   } else {
-    // AMBIGUOUS! Multiple parse trees found
     resultEl.style.display = 'block';
-    resultEl.innerHTML = `
-      <div class="flex items-center gap-3 mb-2">
-        <i class="fa-solid fa-triangle-exclamation" style="color:var(--accent3);font-size:18px"></i>
-        <span class="font-semibold" style="color:var(--accent3)">Ambiguous</span>
-        <span class="badge badge-rose">${trees.length} trees</span>
-      </div>
-      <p class="text-[13px]" style="color:var(--text-secondary);line-height:1.75">
-        "<strong>${escapeHtml(input)}</strong>" has <strong>${trees.length}</strong> distinct parse trees!<br>
-        The grammar is <strong style="color:var(--accent3)">ambiguous</strong>.
-      </p>
-    `;
-    
-    // Render all trees
+    resultEl.innerHTML = `<div class="flex items-center gap-3 mb-2"><i class="fa-solid fa-triangle-exclamation" style="color:var(--accent3);font-size:18px"></i><span class="font-semibold" style="color:var(--accent3)">Ambiguous</span><span class="badge badge-rose">${trees.length} trees</span></div><p class="text-[12px] md:text-[13px]" style="color:var(--text-secondary);line-height:1.7">"<strong>${escapeHtml(input)}</strong>" has <strong>${trees.length}</strong> distinct parse trees!</p>`;
     treesContainer.innerHTML = '';
-    
     trees.forEach((tree, idx) => {
       const card = document.createElement('div');
-      card.className = 'glass p-4';
-      card.innerHTML = `
-        <div class="text-xs font-medium mb-3" style="color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em">
-          Parse Tree #${idx + 1}
-        </div>
-        <div class="tree-container-${idx}"></div>
-      `;
+      card.className = 'glass p-4 ambig-tree-card';
+      card.innerHTML = `<div class="text-xs font-medium mb-3" style="color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em">Parse Tree #${idx + 1}</div><div class="tree-container-${idx}"></div>`;
       treesContainer.appendChild(card);
-      
-      // Staggered rendering for visual effect
-      setTimeout(() => {
-        const container = card.querySelector(`.tree-container-${idx}`);
-        renderParseTree(container, tree, true);
-      }, idx * 250);
+      setTimeout(() => renderParseTree(card.querySelector(`.tree-container-${idx}`), tree, true), idx * 250);
     });
-    
-    showToast(`Ambiguous: ${trees.length} different parse trees found!`, 'error');
+    showToast(`Ambiguous: ${trees.length} trees found!`, 'error');
   }
 }
 
 function randomAmbigInput() {
-  if (!currentGrammar) {
-    showToast('Please define a grammar first.', 'error');
-    return;
-  }
-  
+  if (!currentGrammar) { showToast('Please define a grammar first.', 'error'); return; }
   const randomString = generateRandomString(currentGrammar, 8);
-  
-  if (randomString !== null) {
-    document.getElementById('ambigInput').value = randomString;
-    checkAmbiguity();
-  } else {
-    showToast('Could not generate a test string.', 'error');
-  }
+  if (randomString !== null) { document.getElementById('ambigInput').value = randomString; checkAmbiguity(); }
+  else { showToast('Could not generate a test string.', 'error'); }
 }
 
 /* ────────────────────────────────────────────────
    UTILITY FUNCTIONS
    ──────────────────────────────────────────────── */
 
-/**
- * Escape HTML special characters to prevent XSS.
- */
 function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
@@ -1808,32 +1552,31 @@ function escapeHtml(str) {
    ──────────────────────────────────────────────── */
 
 document.addEventListener('keydown', (e) => {
-  // Only handle keyboard when in derivation tab and have steps loaded
   if (currentTab === 'derivation' && derivSteps.length > 0) {
-    if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      derivStep(1);
-    } else if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      derivStep(-1);
-    } else if (e.key === 'End') {
-      e.preventDefault();
-      derivStep(999);
-    }
+    if (e.key === 'ArrowRight') { e.preventDefault(); derivStep(1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); derivStep(-1); }
+    else if (e.key === 'End') { e.preventDefault(); derivStep(999); }
   }
 });
 
-/* Enter key triggers actions in input fields */
-document.getElementById('derivInput').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') runDerivation('left');
-});
-document.getElementById('treeInput').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') generateParseTree();
-});
-document.getElementById('ambigInput').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') checkAmbiguity();
-});
+document.getElementById('derivInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') runDerivation('left'); });
+document.getElementById('treeInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') generateParseTree(); });
+document.getElementById('ambigInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') checkAmbiguity(); });
 
+/* ────────────────────────────────────────────────
+   RESIZE HANDLER FOR SVG TREES
+   ──────────────────────────────────────────────── */
+window.addEventListener('resize', () => {
+  // Re-render any visible parse trees to adjust centering
+  const treeRender = document.getElementById('tree-render');
+  if (treeRender && treeRender.querySelector('svg')) {
+    // The SVG will auto-adjust via CSS, but we can trigger re-centering if needed
+    const svg = treeRender.querySelector('svg');
+    if (svg && svg.clientWidth < treeRender.clientWidth) {
+      svg.style.marginLeft = `${(treeRender.clientWidth - svg.clientWidth) / 2}px`;
+    }
+  }
+});
 </script>
 </body>
 </html>
