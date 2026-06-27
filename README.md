@@ -1,4 +1,4 @@
-# 🚀 CFG Studio
+# CFG Studio
 
 ### Interactive Context-Free Grammar Explorer
 
@@ -6,39 +6,39 @@
 
 ---
 
-## 🌐 Live Demo
+## Live Demo
 
 👉 https://cfg-studio.netlify.app/
 
 ---
 
-## ✨ Features
+## Features
 
-### 🧩 Grammar Designer
+### Grammar Designer
 
 * Define CFG rules using intuitive syntax
 * Supports multiple formats (`→`, `=>`, `::=`)
 * Automatic validation and formatting
 
-### 🔍 Derivation Visualizer
+### Derivation Visualizer
 
 * Step-by-step **Leftmost** and **Rightmost** derivations
 * Interactive controls to navigate derivation steps
 * Random valid string generation
 
-### 🌳 Parse Tree Generator
+### Parse Tree Generator
 
 * Dynamic **SVG-based parse tree visualization**
 * Supports complex and recursive grammars
 * Clean node layout with animations
 
-### ⚠️ Ambiguity Checker
+### Ambiguity Checker
 
 * Detects ambiguous grammars
 * Generates **multiple parse trees** for the same string
 * Demonstrates real ambiguity cases (e.g., expressions, dangling else)
 
-### 📚 Applications Section
+### Applications Section
 
 * Real-world uses of CFGs in:
 
@@ -50,7 +50,7 @@
 
 ---
 
-## 🧠 Core Concepts Implemented
+## Core Concepts Implemented
 
 * Context-Free Grammar Parsing
 * **Earley Parsing Algorithm**
@@ -60,7 +60,7 @@
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 * **HTML5**
 * **Tailwind CSS** (UI Styling)
@@ -69,9 +69,7 @@
 
 ---
 
-
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Run Locally
 
@@ -86,56 +84,12 @@ Then simply open:
 index.html
 ```
 
----
-
-## 📸 Preview
-
-> Add screenshots here (UI, parse tree, derivation steps)
-
----
-
-## 🔥 Highlights
-
-* Implements a **full Earley Parser from scratch**
-* Handles:
-
-  * Left recursion
-  * Right recursion
-  * Epsilon productions
-  * Ambiguous grammars
-* Designed with a **modern glassmorphism UI**
-
----
-
-## 🧪 Example Grammar
-
-```
-S -> a S b | a b
-```
-
-Input:
-
-```
-aabb
-```
-
----
-
-## 🛠️ Future Improvements
-
-* Step-by-step Earley algorithm visualization
-* Grammar saving & sharing
-* Custom grammar library
-* Performance optimization for large inputs
-
----
-
-## 👨‍💻 Author
+## Author
 
 **Saurabh Raj Shekhar**
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
